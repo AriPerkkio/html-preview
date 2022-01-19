@@ -13,6 +13,13 @@ const config = {
             base: dev ? '' : '/html-preview',
         },
         appDir: 'internal',
+        vite: {
+            server: {
+                hmr: {
+                    clientPort: 443,
+                },
+            },
+        },
     },
 };
 
