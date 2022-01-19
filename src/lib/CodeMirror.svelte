@@ -1,72 +1,43 @@
 <script lang="ts">
     import { onMount, createEventDispatcher } from 'svelte';
+    import type CodeMirrorType from 'codemirror';
 
     const dispatch = createEventDispatcher();
 
-    export let code: string = '';
+    export let code = '';
+    let ref: HTMLTextAreaElement | undefined;
 
-    const refs: { editor?: any } = {};
-    let editor: any;
-    let destroyed = false;
-    let CodeMirror: any;
+    onMount(async () => {
+        let mod = await import('./codemirror.js');
 
-    $: if (editor) {
-        editor.refresh();
-    }
-
-    onMount(() => {
-        (async () => {
-            if (!CodeMirror) {
-                let mod = await import('./codemirror.js');
-                CodeMirror = mod.default;
-            }
-            await createEditor();
-            if (editor) editor.setValue(code);
-        })();
-
-        return () => {
-            destroyed = true;
-            if (editor) editor.toTextArea();
-        };
+        await createEditor(mod.default);
     });
 
-    let first = true;
+    async function createEditor(CodeMirror: typeof CodeMirrorType) {
+        if (!ref) {
+            throw new Error('Missing ref to textarea');
+        }
 
-    async function createEditor() {
-        if (destroyed || !CodeMirror) return;
-
-        if (editor) editor.toTextArea();
-
-        if (first) await sleep(50);
-        if (destroyed) return;
-
-        editor = CodeMirror.fromTextArea(refs.editor, {
+        const editor = CodeMirror.fromTextArea(ref, {
             lineNumbers: true,
             lineWrapping: true,
             mode: 'htmlmixed',
             autoCloseBrackets: true,
             autoCloseTags: true,
+            value: 'asd',
         });
 
-        editor.on('change', (instance: any) => {
+        editor.on('change', (instance) => {
             dispatch('change', { value: instance.getValue() });
         });
 
-        if (first) await sleep(50);
-        editor.refresh();
-
-        first = false;
-    }
-
-    function sleep(ms: number) {
-        return new Promise((r) => setTimeout(r, ms));
+        // TODO: Flaky timing issues here
+        editor.setValue(code);
     }
 </script>
 
 <div class="codemirror-container">
-    {#if CodeMirror}
-        <textarea bind:this={refs.editor} value={code} />
-    {/if}
+    <textarea bind:this={ref} value={code} />
 </div>
 
 <style>
