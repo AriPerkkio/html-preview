@@ -1,5 +1,6 @@
 <script lang="ts">
     import CodeMirror from '$lib/CodeMirror.svelte';
+    import StyleEditor from '$lib/StyleEditor.svelte';
 
     const code = `<div>\n  HTML Preview. Edit here.\n</div>`;
     const refs: { sandbox?: HTMLIFrameElement } = {};
@@ -8,7 +9,14 @@
         const { value } = event.detail;
         const iframe = refs.sandbox;
 
-        iframe?.contentWindow?.postMessage({ type: 'CHANGE', value });
+        iframe?.contentWindow?.postMessage({ type: 'CONTENT_CHANGE', value });
+    }
+
+    function styleChanged(event: CustomEvent) {
+        const { value } = event.detail;
+        const iframe = refs.sandbox;
+
+        iframe?.contentWindow?.postMessage({ type: 'STYLE_CHANGE', value });
     }
 </script>
 
@@ -19,7 +27,11 @@
         title="Sandbox"
         bind:this={refs.sandbox}
     />
-    <CodeMirror on:change={changed} {code} />
+
+    <div>
+        <StyleEditor on:change={styleChanged} />
+        <CodeMirror on:change={changed} {code} />
+    </div>
 </div>
 
 <style>

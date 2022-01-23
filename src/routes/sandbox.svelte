@@ -1,14 +1,24 @@
 <script lang="ts">
-    const refs: { root?: HTMLDivElement } = {};
+    const refs: { root?: HTMLDivElement; styles?: HTMLStyleElement } = {};
 
+    // TODO Type events, types and values
     function onMessage(message: MessageEvent) {
         const type = message?.data?.type;
         const value = message?.data?.value;
 
         switch (type) {
-            case 'CHANGE':
+            case 'CONTENT_CHANGE':
                 if (refs?.root) {
                     refs.root.innerHTML = value;
+                }
+                break;
+
+            case 'STYLE_CHANGE':
+                if (refs?.styles) {
+                    const withoutTags = value
+                        .replace('<' + 'style>', '') // sveltejs/svelte#6923
+                        .replace('</style>', '');
+                    refs.styles.innerHTML = withoutTags;
                 }
                 break;
 
@@ -24,6 +34,7 @@
     <head>
         <meta charset="utf-8" />
         <title>Sandbox</title>
+        <style bind:this={refs.styles}></style>
     </head>
 
     <body class="sandbox preview">

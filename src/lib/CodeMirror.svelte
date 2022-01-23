@@ -24,7 +24,7 @@
             mode: 'htmlmixed',
             autoCloseBrackets: true,
             autoCloseTags: true,
-            value: 'asd',
+            value: code,
         });
 
         editor.on('change', (instance) => {
@@ -44,6 +44,10 @@
     .codemirror-container {
         line-height: 1.5;
         overflow: hidden;
+    }
+
+    :global(.CodeMirror.CodeMirror) {
+        height: auto;
     }
 
     textarea {
