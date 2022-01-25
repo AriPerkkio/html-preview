@@ -5,7 +5,13 @@
     const dispatch = createEventDispatcher();
 
     export let code = '';
+    export let editorId: number;
+    export let active = false;
     let ref: HTMLTextAreaElement | undefined;
+
+    $: if (active) {
+        dispatch('change', { value: code, editorId });
+    }
 
     onMount(async () => {
         let mod = await import('./codemirror.js');
@@ -28,15 +34,24 @@
         });
 
         editor.on('change', (instance) => {
-            dispatch('change', { value: instance.getValue() });
+            code = instance.getValue();
+            dispatch('change', { value: code, editorId });
         });
 
         // TODO: Flaky timing issues here
         editor.setValue(code);
     }
+
+    function onRemove() {
+        dispatch('remove', { editorId });
+    }
 </script>
 
-<div class="codemirror-container">
+{#if !active}
+    <button on:click={onRemove}>Remove editor</button>
+{/if}
+
+<div class="codemirror-container" class:active>
     <textarea bind:this={ref} value={code} />
 </div>
 
@@ -44,6 +59,10 @@
     .codemirror-container {
         line-height: 1.5;
         overflow: hidden;
+    }
+
+    .active {
+        border: 2px solid red;
     }
 
     :global(.CodeMirror.CodeMirror) {

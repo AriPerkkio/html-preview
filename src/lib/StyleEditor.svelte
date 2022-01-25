@@ -5,4 +5,4 @@
     const code = '<' + `style>\n  \n</style>`;
 </script>
 
-<CodeMirror on:change {code} />
+<CodeMirror on:change {code} editorId={0} />
