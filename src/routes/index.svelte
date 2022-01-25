@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { base } from '$app/paths';
     import CodeEditors from '$lib/CodeEditors.svelte';
     import StyleEditor from '$lib/StyleEditor.svelte';
 
@@ -26,7 +27,7 @@
 <div class="wrapper">
     <iframe
         security="restricted"
-        src="/sandbox"
+        src="{base}/sandbox"
         title="Sandbox"
         bind:this={refs.sandbox}
     />
