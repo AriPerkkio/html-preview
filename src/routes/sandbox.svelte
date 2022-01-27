@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { update } from '$lib/virtual-dom';
+
     const refs: { root?: HTMLDivElement; styles?: HTMLStyleElement } = {};
 
     // TODO Type events, types and values
@@ -9,7 +11,10 @@
         switch (type) {
             case 'CONTENT_CHANGE':
                 if (refs?.root) {
-                    refs.root.innerHTML = value;
+                    const wrapper = document.createElement('div');
+                    wrapper.innerHTML = value;
+
+                    update(refs.root, wrapper);
                 }
                 break;
 
