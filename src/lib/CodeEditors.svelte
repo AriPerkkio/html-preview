@@ -1,28 +1,31 @@
+<script context="module" lang="ts">
+    export type EditorType = { id: number; code: string };
+</script>
+
 <script lang="ts">
     import { createEventDispatcher } from 'svelte';
     import CodeMirror from '$lib/CodeMirror.svelte';
 
     const dispatch = createEventDispatcher();
-    const defaultId = 1;
-    let editorIds: number[] = [defaultId];
-    let activeEditorId = defaultId;
+    export let editors: EditorType[] = [{ id: 1, code: '' }];
+    let activeEditorId = editors[0]?.id || 1;
 
-    $: currentMaxId = Math.max(...editorIds);
+    $: currentMaxId = Math.max(...editors.map((e) => e.id));
 
     function addEditor() {
-        editorIds = [...editorIds, 1 + currentMaxId];
+        editors = [...editors, { id: 1 + currentMaxId, code: '' }];
     }
 
     function removeEditor(event: CustomEvent) {
         const { editorId } = event.detail;
-        editorIds = editorIds.filter((id) => id !== editorId);
+        editors = editors.filter((e) => e.id !== editorId);
     }
 
     function toggleState() {
-        const currentLowestId = Math.min(...editorIds);
+        const editorIds = editors.map((e) => e.id);
 
         if (activeEditorId === currentMaxId) {
-            activeEditorId = currentLowestId;
+            activeEditorId = Math.min(...editorIds);
             return;
         }
 
@@ -43,12 +46,13 @@
 <button on:click={addEditor}>Add editor</button>
 
 <div>
-    {#each editorIds as editorId (editorId)}
+    {#each editors as editor (editor.id)}
         <CodeMirror
             on:change={changed}
             on:remove={removeEditor}
-            active={editorId === activeEditorId}
-            {editorId}
+            bind:code={editor.code}
+            active={editor.id === activeEditorId}
+            editorId={editor.id}
         />
     {/each}
 </div>
