@@ -33,13 +33,11 @@
         if (!browser) return;
 
         const encoded = btoa(JSON.stringify({ editors, style }));
-        exportUrl = `${window.location.origin}?code=${encodeURIComponent(
-            encoded
-        )}`;
+        const url = new URL(base, window.location.origin);
 
-        const url = new URL(window.location.origin);
-        url.searchParams.set('code', encoded);
+        url.searchParams.set('code', encodeURIComponent(encoded));
         window.history.pushState({}, '', url);
+        exportUrl = url.toString();
     }
 
     function initialize(): InitState {
