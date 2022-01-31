@@ -1,6 +1,5 @@
 <script lang="ts">
     import { base } from '$app/paths';
-    import { page } from '$app/stores';
     import { browser } from '$app/env';
     import CodeEditors, { EditorType } from '$lib/CodeEditors.svelte';
     import StyleEditor from '$lib/StyleEditor.svelte';
@@ -52,7 +51,9 @@
             return defaultValues;
         }
 
-        const encoded = $page.url.searchParams.get('code');
+        const encoded = new URLSearchParams(document.location.search).get(
+            'code'
+        );
         let json: unknown;
 
         if (encoded) {
