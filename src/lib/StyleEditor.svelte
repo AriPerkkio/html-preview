@@ -4,4 +4,4 @@
     export let code = '';
 </script>
 
-<CodeMirror on:change {code} editorId={0} />
+<CodeMirror on:change bind:code editorId={0} />
