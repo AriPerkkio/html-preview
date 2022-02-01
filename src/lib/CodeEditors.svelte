@@ -45,14 +45,12 @@
 <button on:click={toggleState}>Next state</button>
 <button on:click={addEditor}>Add editor</button>
 
-<div>
-    {#each editors as editor (editor.id)}
-        <CodeMirror
-            on:change={changed}
-            on:remove={removeEditor}
-            bind:code={editor.code}
-            active={editor.id === activeEditorId}
-            editorId={editor.id}
-        />
-    {/each}
-</div>
+{#each editors as editor (editor.id)}
+    <CodeMirror
+        on:change={changed}
+        on:remove={removeEditor}
+        bind:code={editor.code}
+        active={editor.id === activeEditorId}
+        editorId={editor.id}
+    />
+{/each}

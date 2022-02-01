@@ -7,6 +7,7 @@
     export let code = '';
     export let editorId: number;
     export let active = false;
+    export let canBeRemoved = true;
     let ref: HTMLTextAreaElement | undefined;
 
     $: if (active) {
@@ -47,12 +48,12 @@
     }
 </script>
 
-{#if !active}
+{#if !active && canBeRemoved}
     <button on:click={onRemove}>Remove editor</button>
 {/if}
 
 <div class="codemirror-container" class:active>
-    <textarea bind:this={ref} value={code} />
+    <textarea bind:this={ref} />
 </div>
 
 <style>
