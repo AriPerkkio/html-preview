@@ -13,7 +13,9 @@
     $: currentMaxId = Math.max(...editors.map((e) => e.id));
 
     function addEditor() {
-        editors = [...editors, { id: 1 + currentMaxId, code: '' }];
+        const code = editors.find((e) => e.id === currentMaxId)?.code || '';
+
+        editors = [...editors, { id: 1 + currentMaxId, code }];
     }
 
     function removeEditor(event: CustomEvent) {
