@@ -72,10 +72,8 @@ function isElement(node: Node | null): node is Element {
     return node != null && node.nodeType === Node.ELEMENT_NODE;
 }
 
-function isTextNode(
-    node: Node
-): node is Node & { type: typeof Node.TEXT_NODE } {
-    return node.nodeType === Node.TEXT_NODE;
+function isTextNode(node: Node | null): node is Text {
+    return node != null && node.nodeType === Node.TEXT_NODE;
 }
 
 function getAttributes(node: Node): Attribute[] {
