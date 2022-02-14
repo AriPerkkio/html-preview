@@ -33,6 +33,12 @@
 
         window.history.pushState({}, '', url);
         exportUrl = url.toString();
+
+        navigator.clipboard.writeText(exportUrl).then(() => {
+            setTimeout(() => {
+                exportUrl = '';
+            }, 3000);
+        });
     }
 </script>
 
@@ -46,10 +52,11 @@
 
     <div>
         <button class="export-btn" on:click={onExport}>Export</button>
-        {#if exportUrl}
-            <p>TODO copy button here</p>
-            <a href={exportUrl}>{exportUrl}</a>
-        {/if}
+        <span aria-live="polite">
+            {#if exportUrl}
+                Copied to clipboard!
+            {/if}
+        </span>
 
         <StyleEditor bind:code={style} />
         <CodeEditors on:change={domTreeChanged} bind:editors />
@@ -62,7 +69,6 @@
     }
 
     .export-btn {
-        display: block;
         margin-bottom: 1rem;
     }
 </style>
