@@ -48,7 +48,7 @@
     }
 </script>
 
-{#if !active && canBeRemoved}
+{#if canBeRemoved}
     <button on:click={onRemove}>Remove editor</button>
 {/if}
 

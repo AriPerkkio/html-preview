@@ -6,9 +6,11 @@
     import { createEventDispatcher } from 'svelte';
     import CodeMirror from '$lib/CodeMirror.svelte';
 
+    const DEFAULT_EDITOR_ID = 1;
+
     const dispatch = createEventDispatcher();
-    export let editors: EditorType[] = [{ id: 1, code: '' }];
-    let activeEditorId = editors[0]?.id || 1;
+    export let editors: EditorType[] = [{ id: DEFAULT_EDITOR_ID, code: '' }];
+    let activeEditorId = editors[0]?.id || DEFAULT_EDITOR_ID;
 
     $: currentMaxId = Math.max(...editors.map((e) => e.id));
 
@@ -20,6 +22,14 @@
 
     function removeEditor(event: CustomEvent) {
         const { editorId } = event.detail;
+
+        if (activeEditorId === editorId) {
+            const index = editors.findIndex((e) => e.id === editorId);
+            const nextEditor = editors[index - 1];
+
+            activeEditorId = nextEditor?.id || DEFAULT_EDITOR_ID;
+        }
+
         editors = editors.filter((e) => e.id !== editorId);
     }
 
@@ -52,6 +62,7 @@
         on:change={changed}
         on:remove={removeEditor}
         bind:code={editor.code}
+        canBeRemoved={editor.id !== DEFAULT_EDITOR_ID}
         active={editor.id === activeEditorId}
         editorId={editor.id}
     />
