@@ -1,7 +1,8 @@
 <script lang="ts">
     import { base } from '$app/paths';
-    import CodeEditors from '$lib/CodeEditors.svelte';
+    import CodeEditors, { CodeEditorsEvents } from '$lib/CodeEditors.svelte';
     import StyleEditor from '$lib/StyleEditor.svelte';
+    import type { SandboxMessage } from '../routes/sandbox.svelte';
     import {
         buildStatefulUrl,
         initializeFromUrlSearchParams,
@@ -12,19 +13,22 @@
 
     let { editors, style } = initializeFromUrlSearchParams();
 
-    $: {
-        refs.sandbox?.contentWindow?.postMessage({
-            type: 'STYLE_CHANGE',
-            value: style,
-        });
+    function postSandboxMessage(message: SandboxMessage, retries = 5) {
+        const contentWindow = refs.sandbox?.contentWindow;
+
+        if (contentWindow) {
+            contentWindow.postMessage(message);
+        } else if (retries > 0) {
+            setTimeout(() => postSandboxMessage(message, retries - 1), 500);
+        }
     }
 
-    function domTreeChanged(event: CustomEvent) {
-        const { value } = event.detail;
+    $: postSandboxMessage({ type: 'STYLE_CHANGE', value: style });
 
-        refs.sandbox?.contentWindow?.postMessage({
+    function domTreeChanged(event: CustomEvent<CodeEditorsEvents['change']>) {
+        postSandboxMessage({
             type: 'CONTENT_CHANGE',
-            value,
+            value: event.detail.value,
         });
     }
 

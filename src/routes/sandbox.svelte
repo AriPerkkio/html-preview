@@ -1,12 +1,17 @@
+<script context="module" lang="ts">
+    export type SandboxMessage = {
+        type: 'STYLE_CHANGE' | 'CONTENT_CHANGE';
+        value: string;
+    };
+</script>
+
 <script lang="ts">
     import { update } from '$lib/virtual-dom';
 
     const refs: { root?: HTMLDivElement; styles?: HTMLStyleElement } = {};
 
-    // TODO Type events, types and values
-    function onMessage(message: MessageEvent) {
-        const type = message?.data?.type;
-        const value = message?.data?.value;
+    function onMessage(message: MessageEvent<SandboxMessage>) {
+        const { type, value } = message.data;
 
         switch (type) {
             case 'CONTENT_CHANGE':

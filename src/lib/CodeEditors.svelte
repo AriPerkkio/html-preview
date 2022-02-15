@@ -1,14 +1,16 @@
 <script context="module" lang="ts">
+    type ChangeEvent = { value: string };
+    export type CodeEditorsEvents = { change: ChangeEvent };
     export type EditorType = { id: number; code: string };
 </script>
 
 <script lang="ts">
     import { createEventDispatcher } from 'svelte';
-    import CodeMirror from '$lib/CodeMirror.svelte';
+    import CodeMirror, { CodeMirrorEvents } from '$lib/CodeMirror.svelte';
 
     const DEFAULT_EDITOR_ID = 1;
 
-    const dispatch = createEventDispatcher();
+    const dispatch = createEventDispatcher<{ change: ChangeEvent }>();
     export let editors: EditorType[] = [{ id: DEFAULT_EDITOR_ID, code: '' }];
     let activeEditorId = editors[0]?.id || DEFAULT_EDITOR_ID;
 
@@ -20,7 +22,7 @@
         editors = [...editors, { id: 1 + currentMaxId, code }];
     }
 
-    function removeEditor(event: CustomEvent) {
+    function removeEditor(event: CustomEvent<CodeMirrorEvents['remove']>) {
         const { editorId } = event.detail;
 
         if (activeEditorId === editorId) {
@@ -45,7 +47,7 @@
         activeEditorId = editorIds[1 + currentIndex];
     }
 
-    function changed(event: CustomEvent) {
+    function changed(event: CustomEvent<CodeMirrorEvents['change']>) {
         const { value, editorId } = event.detail;
 
         if (editorId === activeEditorId) {

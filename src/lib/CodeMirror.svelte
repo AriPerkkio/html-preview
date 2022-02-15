@@ -1,8 +1,19 @@
+<script context="module" lang="ts">
+    type ChangeEvent = { value: string; editorId: number };
+    type RemoveEvent = { editorId: number };
+    export type CodeMirrorEvents = { change: ChangeEvent; remove: RemoveEvent };
+</script>
+
 <script lang="ts">
     import { onMount, createEventDispatcher } from 'svelte';
     import type CodeMirrorType from 'codemirror';
 
-    const dispatch = createEventDispatcher();
+    // Svelte is unable to resolve types if
+    // createEventDispatcher<CodeMirrorEvents> is used here
+    const dispatch = createEventDispatcher<{
+        change: ChangeEvent;
+        remove: RemoveEvent;
+    }>();
 
     export let code = '';
     export let editorId: number;
