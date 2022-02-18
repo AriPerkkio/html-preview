@@ -6,7 +6,7 @@
 </script>
 
 <script lang="ts">
-    import { update } from '$lib/virtual-dom';
+    import { update } from 'virtual-dom-nodes';
 
     const refs: { root?: HTMLDivElement; styles?: HTMLStyleElement } = {};
 
