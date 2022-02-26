@@ -5,15 +5,7 @@
 </script>
 
 <script lang="ts">
-    import { onMount, createEventDispatcher } from 'svelte';
-    import type CodeMirrorType from 'codemirror';
-
-    // Svelte is unable to resolve types if
-    // createEventDispatcher<CodeMirrorEvents> is used here
-    const dispatch = createEventDispatcher<{
-        change: ChangeEvent;
-        remove: RemoveEvent;
-    }>();
+    import { createEventDispatcher, onMount } from 'svelte';
 
     export let code = '';
     export let editorId: number;
@@ -26,15 +18,11 @@
     }
 
     onMount(async () => {
-        let mod = await import('./codemirror.js');
-
-        await createEditor(mod.default);
-    });
-
-    async function createEditor(CodeMirror: typeof CodeMirrorType) {
         if (!ref) {
             throw new Error('Missing ref to textarea');
         }
+
+        const { default: CodeMirror } = await import('./codemirror.js');
 
         const editor = CodeMirror.fromTextArea(ref, {
             lineNumbers: true,
@@ -49,10 +37,14 @@
             code = instance.getValue();
             dispatch('change', { value: code, editorId });
         });
+    });
 
-        // TODO: Flaky timing issues here
-        editor.setValue(code);
-    }
+    // Svelte is unable to resolve types if
+    // createEventDispatcher<CodeMirrorEvents> is used here
+    const dispatch = createEventDispatcher<{
+        change: ChangeEvent;
+        remove: RemoveEvent;
+    }>();
 
     function onRemove() {
         dispatch('remove', { editorId });
@@ -64,7 +56,7 @@
 {/if}
 
 <div class="codemirror-container" class:active>
-    <textarea bind:this={ref} />
+    <textarea bind:this={ref} value={code} />
 </div>
 
 <style>

@@ -1,8 +1,9 @@
 <script lang="ts">
+    import { onMount } from 'svelte';
     import { base } from '$app/paths';
     import CodeEditors, { CodeEditorsEvents } from '$lib/CodeEditors.svelte';
     import StyleEditor from '$lib/StyleEditor.svelte';
-    import type { SandboxMessage } from '../routes/sandbox.svelte';
+    import type { SandboxMessage } from './sandbox.svelte';
     import {
         buildStatefulUrl,
         initializeFromUrlSearchParams,
@@ -13,17 +14,25 @@
 
     let { editors, style } = initializeFromUrlSearchParams();
 
+    // There is only a single style editor - reflect its value to sandbox
+    $: postSandboxMessage({ type: 'STYLE_CHANGE', value: style });
+
+    onMount(() => {
+        // Initialize sandbox
+        postSandboxMessage({ type: 'CONTENT_CHANGE', value: editors[0].code });
+    });
+
     function postSandboxMessage(message: SandboxMessage, retries = 5) {
         const contentWindow = refs.sandbox?.contentWindow;
 
         if (contentWindow) {
             contentWindow.postMessage(message);
         } else if (retries > 0) {
+            // If sandbox is not yet initialized (iframe is not ready), keep
+            // polling until ready.
             setTimeout(() => postSandboxMessage(message, retries - 1), 500);
         }
     }
-
-    $: postSandboxMessage({ type: 'STYLE_CHANGE', value: style });
 
     function domTreeChanged(event: CustomEvent<CodeEditorsEvents['change']>) {
         postSandboxMessage({
@@ -35,10 +44,12 @@
     function onExport() {
         const url = buildStatefulUrl({ style, editors });
 
+        // Update window's URL with export URL
         window.history.pushState({}, '', url);
         exportUrl = url.toString();
 
         navigator.clipboard.writeText(exportUrl).then(() => {
+            // Removes "Copied" text from screen after a delay
             setTimeout(() => {
                 exportUrl = '';
             }, 3000);
@@ -58,7 +69,7 @@
         <button class="export-btn" on:click={onExport}>Export</button>
         <span aria-live="polite">
             {#if exportUrl}
-                Copied to clipboard!
+                URL copied to clipboard!
             {/if}
         </span>
 
