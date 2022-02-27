@@ -16,7 +16,7 @@
     },
     "dependencies": {
         "codemirror": "^5.65.0",
-        "virtual-dom-nodes": "^0.0.1"
+        "virtual-dom-nodes": "^0.2.0"
     },
     "devDependencies": {
         "@sveltejs/adapter-static": "^1.0.0-next.26",

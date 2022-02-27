@@ -1665,10 +1665,10 @@ v8-compile-cache@^2.0.3:
   resolved "https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz#2de19618c66dc247dcfb6f99338035d8245a2cee"
   integrity sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA==
 
-virtual-dom-nodes@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/virtual-dom-nodes/-/virtual-dom-nodes-0.0.1.tgz#d27f46698183fee54d84a5a07b1f56c04b3a9ff7"
-  integrity sha512-N6fpLnIyA5praIG8lFUyGKBTfI1xF2dUsfWvyZzeIRaI12HTsLKokH3dmwF0Sf2+l2IP/vSQwhN/3LTdD//blQ==
+virtual-dom-nodes@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/virtual-dom-nodes/-/virtual-dom-nodes-0.2.0.tgz#ce37a3c7fadf78efb4f0b4ba4bb7d742c40d8e79"
+  integrity sha512-zcwDYmXM6EN611vzOBcLzqtLna+L5HOl2ADnlpmTGSdTa4KSS16P+SUTSCS8fyBdOnBJ9OSX/HuCro0/+wc3lw==
 
 vite@^2.7.2:
   version "2.7.13"
