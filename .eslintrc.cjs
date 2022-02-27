@@ -6,6 +6,9 @@ module.exports = {
         es2017: true,
         node: true,
     },
+    globals: {
+        svelte: 'readonly',
+    },
     parser: '@typescript-eslint/parser',
     parserOptions: {
         sourceType: 'module',

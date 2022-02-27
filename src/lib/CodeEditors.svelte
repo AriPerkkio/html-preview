@@ -13,6 +13,7 @@
     const dispatch = createEventDispatcher<{ change: ChangeEvent }>();
     export let editors: EditorType[] = [{ id: DEFAULT_EDITOR_ID, code: '' }];
     let activeEditorId = editors[0]?.id || DEFAULT_EDITOR_ID;
+    let cycleCleanup: null | (() => void);
 
     $: currentMaxId = Math.max(...editors.map((e) => e.id));
 
@@ -47,6 +48,19 @@
         activeEditorId = editorIds[1 + currentIndex];
     }
 
+    function cycleStates(
+        event: Parameters<svelte.JSX.FormEventHandler<HTMLInputElement>>[0]
+    ) {
+        if (!event.currentTarget.checked) {
+            cycleCleanup?.();
+            cycleCleanup = null;
+            return;
+        }
+
+        const id = setInterval(toggleState, 3000);
+        cycleCleanup = () => clearInterval(id);
+    }
+
     function changed(event: CustomEvent<CodeMirrorEvents['change']>) {
         const { value, editorId } = event.detail;
 
@@ -55,6 +69,11 @@
         }
     }
 </script>
+
+<div>
+    <label for="state-cycle">Loop states</label>
+    <input id="state-cycle" type="checkbox" on:change={cycleStates} />
+</div>
 
 <button on:click={toggleState}>Next state</button>
 <button on:click={addEditor}>Add editor</button>
