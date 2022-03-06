@@ -7,6 +7,11 @@
 <script lang="ts">
     import { createEventDispatcher } from 'svelte';
     import CodeMirror, { CodeMirrorEvents } from '$lib/CodeMirror.svelte';
+    import IconButton from './IconButton.svelte';
+    import Play from '$lib/img/play.svg';
+    import Pause from '$lib/img/pause.svg';
+    import Next from '$lib/img/next.svg';
+    import Plus from '$lib/img/plus.svg';
 
     const DEFAULT_EDITOR_ID = 1;
 
@@ -48,17 +53,18 @@
         activeEditorId = editorIds[1 + currentIndex];
     }
 
-    function cycleStates(
-        event: Parameters<svelte.JSX.FormEventHandler<HTMLInputElement>>[0]
-    ) {
-        if (!event.currentTarget.checked) {
-            cycleCleanup?.();
-            cycleCleanup = null;
-            return;
+    function play() {
+        if (!cycleCleanup) {
+            const id = setInterval(toggleState, 2000);
+            cycleCleanup = () => clearInterval(id);
         }
+    }
 
-        const id = setInterval(toggleState, 3000);
-        cycleCleanup = () => clearInterval(id);
+    function pause() {
+        if (cycleCleanup) {
+            cycleCleanup();
+            cycleCleanup = null;
+        }
     }
 
     function changed(event: CustomEvent<CodeMirrorEvents['change']>) {
@@ -70,13 +76,27 @@
     }
 </script>
 
-<div>
-    <label for="state-cycle">Loop states</label>
-    <input id="state-cycle" type="checkbox" on:change={cycleStates} />
-</div>
+<IconButton
+    on:click={play}
+    aria-label="Loop states"
+    disabled={cycleCleanup != null}>
+    <Play />
+</IconButton>
 
-<button on:click={toggleState}>Next state</button>
-<button on:click={addEditor}>Add editor</button>
+<IconButton
+    on:click={pause}
+    aria-label="Pause state looping"
+    disabled={cycleCleanup == null}>
+    <Pause />
+</IconButton>
+
+<IconButton on:click={toggleState} aria-label="Next state">
+    <Next />
+</IconButton>
+
+<IconButton on:click={addEditor} aria-label="Add editor">
+    <Plus />
+</IconButton>
 
 {#each editors as editor (editor.id)}
     <CodeMirror
@@ -85,6 +105,5 @@
         bind:code={editor.code}
         canBeRemoved={editor.id !== DEFAULT_EDITOR_ID}
         active={editor.id === activeEditorId}
-        editorId={editor.id}
-    />
+        editorId={editor.id} />
 {/each}

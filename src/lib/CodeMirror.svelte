@@ -6,6 +6,8 @@
 
 <script lang="ts">
     import { createEventDispatcher, onMount } from 'svelte';
+    import IconButton from '$lib/IconButton.svelte';
+    import Close from '$lib/img/close.svg';
 
     export let code = '';
     export let editorId: number;
@@ -51,18 +53,32 @@
     }
 </script>
 
-{#if canBeRemoved}
-    <button on:click={onRemove}>Remove editor</button>
-{/if}
-
 <div class="codemirror-container" class:active>
     <textarea bind:this={ref} value={code} />
+
+    {#if canBeRemoved}
+        <IconButton
+            aria-label="Remove editor"
+            class="remove"
+            on:click={onRemove}>
+            <Close />
+        </IconButton>
+    {/if}
 </div>
 
-<style>
+<style type="scss">
     .codemirror-container {
         line-height: 1.5;
         overflow: hidden;
+        position: relative;
+        padding-right: 1rem;
+        border: 1px solid #ccc;
+
+        :global(.remove) {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
     }
 
     .active {

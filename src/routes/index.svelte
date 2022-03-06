@@ -8,6 +8,8 @@
         buildStatefulUrl,
         initializeFromUrlSearchParams,
     } from '$lib/utils/urlSearchParams.svelte';
+    import IconButton from '$lib/IconButton.svelte';
+    import Share from '$lib/img/share.svg';
 
     const refs: { sandbox?: HTMLIFrameElement } = {};
     let exportUrl: string | undefined;
@@ -62,11 +64,13 @@
         security="restricted"
         src="{base}/sandbox"
         title="Sandbox"
-        bind:this={refs.sandbox}
-    />
+        bind:this={refs.sandbox} />
 
-    <div>
-        <button class="export-btn" on:click={onExport}>Export</button>
+    <div class="controls">
+        <IconButton on:click={onExport}>
+            <Share />
+        </IconButton>
+
         <span aria-live="polite">
             {#if exportUrl}
                 URL copied to clipboard!
@@ -83,7 +87,7 @@
         display: flex;
     }
 
-    .export-btn {
+    .controls {
         margin-bottom: 1rem;
     }
 </style>
