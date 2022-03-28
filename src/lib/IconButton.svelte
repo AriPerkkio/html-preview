@@ -1,5 +1,8 @@
 <button {...$$props} on:click>
-    <slot />
+    <!-- TODO: How to pass aria-hidden to slot directly? -->
+    <div aria-hidden="true">
+        <slot />
+    </div>
 </button>
 
 <style lang="scss">
