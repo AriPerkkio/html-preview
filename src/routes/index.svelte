@@ -26,8 +26,9 @@
 
     function postSandboxMessage(message: SandboxMessage, retries = 5) {
         const contentWindow = refs.sandbox?.contentWindow;
+        const readyState = refs.sandbox?.contentDocument?.readyState;
 
-        if (contentWindow) {
+        if (readyState === 'complete' && contentWindow) {
             contentWindow.postMessage(message);
         } else if (retries > 0) {
             // If sandbox is not yet initialized (iframe is not ready), keep
