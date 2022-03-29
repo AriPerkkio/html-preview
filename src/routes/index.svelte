@@ -60,14 +60,26 @@
 </script>
 
 <div class="wrapper">
+    <h1>HTML Preview</h1>
+
+    <p>
+        Test and share snippets of HTML and state tranformations with others.
+        <a
+            href="/?code=eyJzdHlsZSI6IjxzdHlsZT5cbiAgKiB7XG4gICAgY29sb3I6IGJsdWU7XG4gICAgZm9udC1zaXplOiAycmVtO1xuICB9XG48L3N0eWxlPiIsImVkaXRvcnMiOlt7ImlkIjoxLCJjb2RlIjoiPGRpdiByb2xlPVwic3RhdHVzXCI%252BXG4gIFxuPC9kaXY%252BIn0seyJpZCI6MiwiY29kZSI6IjxkaXYgcm9sZT1cInN0YXR1c1wiPlxuICBIZWxsbyB3b3JsZCFcbjwvZGl2PiJ9XX0%253D"
+            >For insipiration see ARIA-live region example.</a>
+
+        Remember to click play to see state transformations.
+    </p>
+
     <iframe
+        class="sandbox"
         security="restricted"
         src="{base}/sandbox"
         title="Sandbox"
         bind:this={refs.sandbox} />
 
-    <div class="controls">
-        <IconButton on:click={onExport}>
+    <CodeEditors on:change={domTreeChanged} bind:editors>
+        <IconButton on:click={onExport} aria-label="Share" title="Share">
             <Share />
         </IconButton>
 
@@ -76,18 +88,24 @@
                 URL copied to clipboard!
             {/if}
         </span>
+    </CodeEditors>
 
-        <StyleEditor bind:code={style} />
-        <CodeEditors on:change={domTreeChanged} bind:editors />
-    </div>
+    <StyleEditor bind:code={style} />
 </div>
 
-<style>
+<style type="scss">
     .wrapper {
-        display: flex;
-    }
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: stretch;
+        gap: 0.25rem;
+        padding: 2rem 1rem;
 
-    .controls {
-        margin-bottom: 1rem;
+        max-width: 100ch;
+        margin: 0 auto;
+
+        :global & > * {
+            min-width: 250px;
+        }
     }
 </style>

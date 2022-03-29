@@ -11,7 +11,7 @@
 
     export function initializeFromUrlSearchParams(): InitState {
         const defaultValues = {
-            editors: [{ id: 1, code: '' }],
+            editors: [{ id: 1, code: '\n\n\n\n' }],
 
             // Svelte seems to break if style tag is written in string directly, sveltejs/svelte#6923
             style: '<' + `style>\n  \n</style>`,

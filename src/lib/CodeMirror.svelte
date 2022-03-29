@@ -82,7 +82,7 @@
     }
 
     .active {
-        border: 2px solid red;
+        border: 3px solid #123;
     }
 
     :global(.CodeMirror.CodeMirror) {

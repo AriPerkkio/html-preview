@@ -6,6 +6,8 @@
 </button>
 
 <style lang="scss">
+    $size: 1.8rem;
+
     button {
         cursor: pointer;
         background-color: transparent;
@@ -14,8 +16,8 @@
         margin: 0;
 
         :global(svg) {
-            width: 1.3rem;
-            height: 1.3rem;
+            width: $size;
+            height: $size;
         }
     }
 

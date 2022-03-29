@@ -23,7 +23,7 @@
     $: currentMaxId = Math.max(...editors.map((e) => e.id));
 
     function addEditor() {
-        const code = editors.find((e) => e.id === currentMaxId)?.code || '';
+        const code = editors.find((e) => e.id === currentMaxId)?.code || '\n\n';
 
         editors = [...editors, { id: 1 + currentMaxId, code }];
     }
@@ -76,27 +76,31 @@
     }
 </script>
 
-<IconButton
-    on:click={play}
-    aria-label="Loop states"
-    disabled={cycleCleanup != null}>
-    <Play />
-</IconButton>
+<div class="controls">
+    <IconButton
+        on:click={play}
+        aria-label="Loop states"
+        disabled={cycleCleanup != null}>
+        <Play />
+    </IconButton>
 
-<IconButton
-    on:click={pause}
-    aria-label="Pause state looping"
-    disabled={cycleCleanup == null}>
-    <Pause />
-</IconButton>
+    <IconButton
+        on:click={pause}
+        aria-label="Pause state looping"
+        disabled={cycleCleanup == null}>
+        <Pause />
+    </IconButton>
 
-<IconButton on:click={toggleState} aria-label="Next state">
-    <Next />
-</IconButton>
+    <IconButton on:click={toggleState} aria-label="Next state">
+        <Next />
+    </IconButton>
 
-<IconButton on:click={addEditor} aria-label="Add editor">
-    <Plus />
-</IconButton>
+    <IconButton on:click={addEditor} aria-label="Add editor">
+        <Plus />
+    </IconButton>
+
+    <slot />
+</div>
 
 {#each editors as editor (editor.id)}
     <CodeMirror
@@ -107,3 +111,14 @@
         active={editor.id === activeEditorId}
         editorId={editor.id} />
 {/each}
+
+<style type="scss">
+    .controls {
+        display: flex;
+        align-items: center;
+
+        :global & > button {
+            margin-right: 0.5rem;
+        }
+    }
+</style>
