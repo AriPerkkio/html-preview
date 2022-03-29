@@ -65,7 +65,7 @@
     <p>
         Test and share snippets of HTML and state tranformations with others.
         <a
-            href="/?code=eyJzdHlsZSI6IjxzdHlsZT5cbiAgKiB7XG4gICAgY29sb3I6IGJsdWU7XG4gICAgZm9udC1zaXplOiAycmVtO1xuICB9XG48L3N0eWxlPiIsImVkaXRvcnMiOlt7ImlkIjoxLCJjb2RlIjoiPGRpdiByb2xlPVwic3RhdHVzXCI%252BXG4gIFxuPC9kaXY%252BIn0seyJpZCI6MiwiY29kZSI6IjxkaXYgcm9sZT1cInN0YXR1c1wiPlxuICBIZWxsbyB3b3JsZCFcbjwvZGl2PiJ9XX0%253D"
+            href="{base}/?code=eyJzdHlsZSI6IjxzdHlsZT5cbiAgKiB7XG4gICAgY29sb3I6IGJsdWU7XG4gICAgZm9udC1zaXplOiAycmVtO1xuICB9XG48L3N0eWxlPiIsImVkaXRvcnMiOlt7ImlkIjoxLCJjb2RlIjoiPGRpdiByb2xlPVwic3RhdHVzXCI%252BXG4gIFxuPC9kaXY%252BIn0seyJpZCI6MiwiY29kZSI6IjxkaXYgcm9sZT1cInN0YXR1c1wiPlxuICBIZWxsbyB3b3JsZCFcbjwvZGl2PiJ9XX0%253D"
             >For insipiration see ARIA-live region example.</a>
 
         Remember to click play to see state transformations.
