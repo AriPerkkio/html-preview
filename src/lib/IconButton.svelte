@@ -1,6 +1,6 @@
 <button {...$$props} on:click>
     <!-- TODO: How to pass aria-hidden to slot directly? -->
-    <div aria-hidden="true">
+    <div aria-hidden="true" class="icon-wrapper">
         <slot />
     </div>
 </button>
@@ -15,10 +15,23 @@
         padding: 0;
         margin: 0;
 
+        &:hover,
+        &:focus {
+            transform: scale(1.1);
+        }
+
+        &:focus {
+            outline: 0.2rem dashed black;
+        }
+
         :global(svg) {
             width: $size;
             height: $size;
         }
+    }
+
+    .icon-wrapper {
+        display: flex;
     }
 
     [disabled] {

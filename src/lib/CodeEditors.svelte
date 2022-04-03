@@ -80,6 +80,7 @@
     <IconButton
         on:click={play}
         aria-label="Loop states"
+        title="Loop states"
         disabled={cycleCleanup != null}>
         <Play />
     </IconButton>
@@ -87,15 +88,19 @@
     <IconButton
         on:click={pause}
         aria-label="Pause state looping"
+        title="Pause state looping"
         disabled={cycleCleanup == null}>
         <Pause />
     </IconButton>
 
-    <IconButton on:click={toggleState} aria-label="Next state">
+    <IconButton
+        on:click={toggleState}
+        aria-label="Next state"
+        title="Next state">
         <Next />
     </IconButton>
 
-    <IconButton on:click={addEditor} aria-label="Add editor">
+    <IconButton on:click={addEditor} aria-label="Add editor" title="Add editor">
         <Plus />
     </IconButton>
 
@@ -116,6 +121,7 @@
     .controls {
         display: flex;
         align-items: center;
+        margin: 0.25rem 0;
 
         :global & > button {
             margin-right: 0.5rem;

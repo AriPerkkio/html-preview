@@ -59,6 +59,7 @@
     {#if canBeRemoved}
         <IconButton
             aria-label="Remove editor"
+            title="Remove editor"
             class="remove"
             on:click={onRemove}>
             <Close />
