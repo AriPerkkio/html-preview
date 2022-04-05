@@ -1,6 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import { base } from '$app/paths';
+    import { browser } from '$app/env';
     import CodeEditors, { CodeEditorsEvents } from '$lib/CodeEditors.svelte';
     import StyleEditor from '$lib/StyleEditor.svelte';
     import type { SandboxMessage } from './sandbox.svelte';
@@ -24,9 +25,13 @@
         postSandboxMessage({ type: 'CONTENT_CHANGE', value: editors[0].code });
     });
 
-    function postSandboxMessage(message: SandboxMessage, retries = 5) {
+    function postSandboxMessage(message: SandboxMessage, retries = 20) {
+        if (!browser) return;
+
         const contentWindow = refs.sandbox?.contentWindow;
         const readyState = refs.sandbox?.contentDocument?.readyState;
+
+        console.log('iframe readyState', readyState);
 
         if (readyState === 'complete' && contentWindow) {
             contentWindow.postMessage(message);
