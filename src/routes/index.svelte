@@ -72,7 +72,7 @@
         Test and share snippets of HTML and state tranformations with others.
         <a
             rel="external"
-            href="{base}/?code=eyJzdHlsZSI6IjxzdHlsZT5cbiAgKiB7XG4gICAgY29sb3I6IGJsdWU7XG4gICAgZm9udC1zaXplOiAycmVtO1xuICB9XG48L3N0eWxlPiIsImVkaXRvcnMiOlt7ImlkIjoxLCJjb2RlIjoiPGRpdiByb2xlPVwic3RhdHVzXCI%252BXG4gIFxuPC9kaXY%252BIn0seyJpZCI6MiwiY29kZSI6IjxkaXYgcm9sZT1cInN0YXR1c1wiPlxuICBIZWxsbyB3b3JsZCFcbjwvZGl2PiJ9XX0%253D"
+            href="{base}/?code=N4IgzgLgngNgpiAXCAPJWcB8AdAdgAnwAd9g9DCAzAe1wgFowBLALzkXwEYA6AJgCc4AWwDc5fAF9xAbX7V4AXmzgIAQwgBXMMoC6pcYQDG86vw4AjGBrhiCFGnUat2%2BAcNuEpuFAHp08TBAAGhA4ABMmCFMwJGlQJjCkThDjMIRkFCIcOwBhGCZDAGtiGFUofCj8MDg4fHyAN1rBAHMmWnwNIjD1ODxfLL6I%2Bvw5RWVIdS1lbMI%2BnyHAiSD4xMReFOo0pFQB3PyikrKK6iqauqZGkbhW9s7uiF7vH12UIZH5OCUVSe0QGfwABJwGAwE4Ad1MMDCcwWIAkOgkQA"
             >For insipiration see ARIA-live region example.</a>
 
         Remember to click play to see state transformations.
