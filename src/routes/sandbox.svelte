@@ -6,7 +6,15 @@
 </script>
 
 <script lang="ts">
+    import { onMount } from 'svelte';
+
     import { update } from 'virtual-dom-nodes';
+
+    let state = '';
+
+    onMount(() => {
+        state = 'sandbox-ready';
+    });
 
     const refs: { root?: HTMLDivElement; styles?: HTMLStyleElement } = {};
 
@@ -47,7 +55,7 @@
 
 <svelte:window on:message={onMessage} />
 
-<div>
+<div data-state={state}>
     <style bind:this={refs.styles}></style>
     <div bind:this={refs.root} />
 </div>

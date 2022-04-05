@@ -29,11 +29,17 @@
         if (!browser) return;
 
         const contentWindow = refs.sandbox?.contentWindow;
-        const readyState = refs.sandbox?.contentDocument?.readyState;
+        const contentDocument = refs.sandbox?.contentDocument;
 
-        console.log('iframe readyState', readyState);
+        // Use custom state instead of document.readyState when identifying iframe's state.
+        // Seems that readyState is set "complete" before iframe is subsribing channel.
+        const isReady =
+            contentDocument?.querySelector('[data-state="sandbox-ready"]') !=
+            null;
 
-        if (readyState === 'complete' && contentWindow) {
+        console.log('is sandbox ready', isReady);
+
+        if (isReady && contentWindow) {
             contentWindow.postMessage(message);
         } else if (retries > 0) {
             // If sandbox is not yet initialized (iframe is not ready), keep
