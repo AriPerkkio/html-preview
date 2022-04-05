@@ -1,6 +1,10 @@
 <script lang="ts" context="module">
     import { browser } from '$app/env';
     import { base } from '$app/paths';
+    import {
+        decompressFromEncodedURIComponent,
+        compressToEncodedURIComponent,
+    } from '$lib/lz-string/lzstring.min';
 
     import type { EditorType } from '$lib/CodeEditors.svelte';
 
@@ -28,7 +32,7 @@
 
         if (encoded) {
             try {
-                const decoded = atob(decodeURIComponent(encoded));
+                const decoded = decompressFromEncodedURIComponent(encoded);
                 json = JSON.parse(decoded);
             } catch (e) {
                 console.error('Unable to parse url search parameters', e);
@@ -47,10 +51,10 @@
     }
 
     export function buildStatefulUrl(state: InitState): URL {
-        const encoded = btoa(JSON.stringify(state));
+        const encoded = compressToEncodedURIComponent(JSON.stringify(state));
         const url = new URL(base, window.location.origin);
 
-        url.searchParams.set('code', encodeURIComponent(encoded));
+        url.searchParams.set('code', encoded);
 
         return url;
     }
