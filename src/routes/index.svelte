@@ -115,4 +115,8 @@
             min-width: 250px;
         }
     }
+
+    .sandbox {
+        resize: vertical;
+    }
 </style>

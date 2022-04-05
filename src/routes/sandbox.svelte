@@ -40,14 +40,7 @@
 
 <svelte:window on:message={onMessage} />
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>Sandbox</title>
-        <style bind:this={refs.styles}></style>
-    </head>
-
-    <body class="sandbox preview">
-        <div bind:this={refs.root} />
-    </body>
-</html>
+<div>
+    <style bind:this={refs.styles}></style>
+    <div bind:this={refs.root} />
+</div>
