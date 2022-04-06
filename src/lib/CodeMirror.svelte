@@ -70,10 +70,11 @@
 <style type="scss">
     .codemirror-container {
         line-height: 1.5;
-        overflow: hidden;
         position: relative;
         padding-right: 1rem;
         border: 1px solid #ccc;
+        resize: vertical;
+        overflow-y: auto;
 
         :global(.remove) {
             position: absolute;
