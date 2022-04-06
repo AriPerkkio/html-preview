@@ -18,11 +18,8 @@
 
     const refs: { root?: HTMLDivElement; styles?: HTMLStyleElement } = {};
 
-    console.log('Sandbox loaded');
-
     function onMessage(message: MessageEvent<SandboxMessage>) {
         const { type, value } = message.data;
-        console.log('Sandbox onMessage', type, value);
 
         switch (type) {
             case 'CONTENT_CHANGE':
@@ -31,8 +28,6 @@
                     wrapper.innerHTML = value;
 
                     update(refs.root, wrapper);
-                } else {
-                    console.log('refs.root is missing');
                 }
                 break;
 
@@ -42,8 +37,6 @@
                         .replace('<' + 'style>', '') // sveltejs/svelte#6923
                         .replace('</style>', '');
                     refs.styles.innerHTML = withoutTags;
-                } else {
-                    console.log('refs.styles is missing');
                 }
                 break;
 

@@ -37,8 +37,6 @@
             contentDocument?.querySelector('[data-state="sandbox-ready"]') !=
             null;
 
-        console.log('is sandbox ready', isReady);
-
         if (isReady && contentWindow) {
             contentWindow.postMessage(message);
         } else if (retries > 0) {
