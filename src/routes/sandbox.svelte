@@ -27,7 +27,13 @@
                     const wrapper = document.createElement('div');
                     wrapper.innerHTML = value;
 
-                    update(refs.root, wrapper);
+                    try {
+                        update(refs.root, wrapper);
+                    } catch (_) {
+                        // Ignore errors caused by broken tags etc
+                    }
+
+                    debugChanges(wrapper, refs.root);
                 }
                 break;
 
@@ -42,6 +48,18 @@
 
             default:
                 console.error('Unknown event caught', { type, value });
+        }
+    }
+
+    function debugChanges(expected: HTMLElement, actual: HTMLElement) {
+        const expectedOuterHTML = expected.outerHTML;
+        const actualOuterHTML = actual.outerHTML;
+
+        if (expectedOuterHTML !== actualOuterHTML) {
+            console.warn('DOM changes do not match', {
+                actualOuterHTML,
+                expectedOuterHTML,
+            });
         }
     }
 </script>
