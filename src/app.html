@@ -6,6 +6,16 @@
         <link rel="icon" href="%svelte.assets%/favicon.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         %svelte.head%
+
+        <style>
+            @font-face {
+                font-family: 'Cascadia Code';
+                src: url('%svelte.assets%/CascadiaCode.ttf');
+            }
+            html {
+                font-family: 'Cascadia Code';
+            }
+        </style>
     </head>
     <body>
         <div id="svelte">%svelte.body%</div>
