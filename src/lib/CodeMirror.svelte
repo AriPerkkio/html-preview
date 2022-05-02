@@ -33,6 +33,7 @@
             autoCloseBrackets: true,
             autoCloseTags: true,
             value: code,
+            theme: 'cobalt',
         });
 
         editor.on('change', (instance) => {
@@ -72,7 +73,8 @@
         line-height: 1.5;
         position: relative;
         padding-right: 1rem;
-        border: 1px solid #ccc;
+        border: 0.1rem solid var(--dusty-blue);
+        background-color: var(--blue);
         resize: vertical;
         overflow-y: auto;
 
@@ -84,14 +86,54 @@
     }
 
     .active {
-        border: 3px solid #123;
-    }
-
-    :global(.CodeMirror.CodeMirror) {
-        height: auto;
+        border: 0.2rem solid var(--yellow);
     }
 
     textarea {
         visibility: hidden;
+    }
+
+    :global(.CodeMirror.CodeMirror) {
+        font-family: 'Cascadia Code';
+        height: auto;
+        background-color: var(--blue);
+    }
+    :global(.CodeMirror-gutters.CodeMirror-gutters) {
+        background-color: var(--blue);
+    }
+    :global(.CodeMirror-line.CodeMirror-line.CodeMirror-line) {
+        color: #fff;
+    }
+    :global(.CodeMirror-cursor.CodeMirror-cursor) {
+        border-left: 0.1rem solid var(--yellow);
+    }
+
+    :global(.CodeMirror-selected) {
+        background: rgba(42, 255, 223, 0.2) !important;
+    }
+
+    @mixin theme($postfixes...) {
+        @each $postfix in $postfixes {
+            :global(.cm-s-cobalt .cm-#{$postfix}) {
+                @content;
+            }
+        }
+    }
+
+    @include theme('tag', 'keyword') {
+        color: var(--light-blue);
+    }
+    @include theme('attribute', 'property') {
+        color: var(--yellow);
+        font-style: italic;
+    }
+    @include theme('string') {
+        color: var(--mint);
+    }
+    @include theme('number') {
+        color: var(--pink);
+    }
+    @include theme('comment') {
+        color: var(--orange);
     }
 </style>

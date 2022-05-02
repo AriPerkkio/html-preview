@@ -21,7 +21,16 @@
         }
 
         &:focus {
-            outline: 0.2rem dashed black;
+            outline: 0.2rem dashed var(--mint);
+        }
+
+        &:not([disabled]) {
+            fill: var(--yellow);
+        }
+
+        &[disabled] {
+            cursor: auto;
+            fill: var(--dusty-blue);
         }
 
         :global(svg) {
@@ -32,10 +41,5 @@
 
     .icon-wrapper {
         display: flex;
-    }
-
-    [disabled] {
-        cursor: auto;
-        fill: #bbb;
     }
 </style>

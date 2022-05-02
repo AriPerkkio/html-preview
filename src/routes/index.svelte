@@ -69,14 +69,14 @@
     }
 </script>
 
-<div class="wrapper">
+<main class="wrapper">
     <h1>HTML Preview</h1>
 
     <p>
         Test and share snippets of HTML and state tranformations with others.
         <a
             rel="external"
-            href="{base}/?code=N4IgzgLgngNgpiAXCAPJWcB8AdAdgAnwAd9g9DCAzAe1wgFowBLALzkXwEYA6AJgCc4AWwDc5fAF9xAbX7V4AXmzgIAQwgBXMMoC6pcYQDG86vw4AjGBrhiCFGnUat2%2BAcNuEpuFAHp08TBAAGhA4ABMmCFMwJGlQJjCkThDjMIRkFCIcOwBhGCZDAGtiGFUofCj8MDg4fHyAN1rBAHMmWnwNIjD1ODxfLL6I%2Bvw5RWVIdS1lbMI%2BnyHAiSD4xMReFOo0pFQB3PyikrKK6iqauqZGkbhW9s7uiF7vH12UIZH5OCUVSe0QGfwABJwGAwE4Ad1MMDCcwWIAkOgkQA"
+            href="{base}/?code=N4IgzgLgngNgpiAXCAPJWcB8AdAdgAnwAd9g9DCAzAe1wgFowBLALzkXwEYA6AJgCc4AWwDc5fAF9xAbX7V4AXmzgIAQwgBXMMoC6pcYQDG86vw4ALahCJNcAazEEKNOo1bt8A4Y8JTcKAHp0eEwQABoQOAATJghTMCRpUCYopE4I4yiEZBQiHCcAYRgmQztiGFUofDj8MDg4fGKANwbBAHMmWnwNIij1ODxAvMGYpvw5RWVIdS1lfMJBgNHQiTDk1MReDOospFRhwuLS8srq6lr6xqYW8bgOrp6%2BiAH-AIOUUfH5OCUVGe0QPN8AAJOAwGDnADuphgUUWyxAEh0EiAA"
             >For insipiration see ARIA-live region example.</a>
 
         Remember to click play to see state transformations.
@@ -102,7 +102,7 @@
     </CodeEditors>
 
     <StyleEditor bind:code={style} />
-</div>
+</main>
 
 <style type="scss">
     .wrapper {
@@ -122,5 +122,19 @@
 
     .sandbox {
         resize: vertical;
+        border: 0.1rem solid var(--yellow);
+        border-radius: 0.5rem;
+    }
+
+    a {
+        color: var(--orange);
+
+        &:focus {
+            padding: 0.2rem;
+            margin: 0 -0.2rem;
+            outline-color: var(--light-blue);
+            outline-style: dashed;
+            outline-width: 0.2rem;
+        }
     }
 </style>

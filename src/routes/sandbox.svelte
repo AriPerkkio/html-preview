@@ -66,7 +66,13 @@
 
 <svelte:window on:message={onMessage} />
 
-<div data-state={state}>
+<div id="sandbox-wrapper" data-state={state}>
     <style bind:this={refs.styles}></style>
     <div bind:this={refs.root} />
 </div>
+
+<style>
+    #sandbox-wrapper {
+        padding: 1rem;
+    }
+</style>
