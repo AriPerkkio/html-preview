@@ -4,4 +4,4 @@
 
 [Test online](https://ariperkkio.github.io/html-preview/)
 
-<img src="https://raw.githubusercontent.com/AriPerkkio/html-preview/HEAD/docs/demo.png">
+<img src="https://raw.githubusercontent.com/AriPerkkio/html-preview/HEAD/docs/demo.gif">
