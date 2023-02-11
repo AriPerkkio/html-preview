@@ -7,7 +7,6 @@
 
 <script lang="ts">
     import { onMount } from 'svelte';
-
     import { update } from 'virtual-dom-nodes';
 
     let state = '';

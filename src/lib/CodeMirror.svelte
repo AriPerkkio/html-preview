@@ -7,7 +7,7 @@
 <script lang="ts">
     import { createEventDispatcher, onMount } from 'svelte';
     import IconButton from '$lib/IconButton.svelte';
-    import Close from '$lib/img/close.svg';
+    import Close from '$lib/img/close.svg?component';
 
     export let code = '';
     export let editorId: number;
@@ -36,7 +36,7 @@
             theme: 'cobalt',
         });
 
-        editor.on('change', (instance) => {
+        editor.on('change', (instance: any) => {
             code = instance.getValue();
             dispatch('change', { value: code, editorId });
         });
@@ -68,7 +68,7 @@
     {/if}
 </div>
 
-<style type="scss">
+<style lang="scss">
     .codemirror-container {
         line-height: 1.5;
         position: relative;

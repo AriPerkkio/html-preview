@@ -6,9 +6,6 @@ module.exports = {
         es2017: true,
         node: true,
     },
-    globals: {
-        svelte: 'readonly',
-    },
     parser: '@typescript-eslint/parser',
     parserOptions: {
         sourceType: 'module',
@@ -22,10 +19,10 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
         'prettier',
     ],
-    plugins: ['svelte3'],
+    plugins: ['svelte3', '@typescript-eslint'],
     overrides: [{ files: ['*.svelte'], processor: 'svelte3/svelte3' }],
     rules: {
         '@typescript-eslint/no-explicit-any': 'off',
     },
-    ignorePatterns: ['**/lz-string/**'],
+    ignorePatterns: ['*.cjs', '**/lz-string/**', '/build', '/.svelte-kit'],
 };

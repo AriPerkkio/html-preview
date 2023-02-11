@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-    import { browser } from '$app/env';
+    import { browser } from '$app/environment';
     import { base } from '$app/paths';
     import {
         decompressFromEncodedURIComponent,

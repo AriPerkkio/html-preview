@@ -1,16 +1,17 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import { base } from '$app/paths';
-    import { browser } from '$app/env';
-    import CodeEditors, { CodeEditorsEvents } from '$lib/CodeEditors.svelte';
+    import { browser } from '$app/environment';
+    import CodeEditors from '$lib/CodeEditors.svelte';
+    import type { CodeEditorsEvents } from '$lib/CodeEditors.svelte';
     import StyleEditor from '$lib/StyleEditor.svelte';
-    import type { SandboxMessage } from './sandbox.svelte';
+    import type { SandboxMessage } from './sandbox/+page.svelte';
     import {
         buildStatefulUrl,
         initializeFromUrlSearchParams,
     } from '$lib/utils/urlSearchParams.svelte';
     import IconButton from '$lib/IconButton.svelte';
-    import Share from '$lib/img/share.svg';
+    import Share from '$lib/img/share.svg?component';
 
     const refs: { sandbox?: HTMLIFrameElement } = {};
     let exportUrl: string | undefined;
@@ -104,7 +105,7 @@
     <StyleEditor bind:code={style} />
 </main>
 
-<style type="scss">
+<style lang="scss">
     .wrapper {
         display: grid;
         grid-template-columns: 1fr;
@@ -115,7 +116,7 @@
         max-width: 100ch;
         margin: 0 auto;
 
-        :global & > * {
+        :global(& > *) {
             min-width: 250px;
         }
     }

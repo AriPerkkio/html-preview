@@ -6,12 +6,13 @@
 
 <script lang="ts">
     import { createEventDispatcher } from 'svelte';
-    import CodeMirror, { CodeMirrorEvents } from '$lib/CodeMirror.svelte';
+    import CodeMirror from '$lib/CodeMirror.svelte';
+    import type { CodeMirrorEvents } from '$lib/CodeMirror.svelte';
     import IconButton from './IconButton.svelte';
-    import Play from '$lib/img/play.svg';
-    import Pause from '$lib/img/pause.svg';
-    import Next from '$lib/img/next.svg';
-    import Plus from '$lib/img/plus.svg';
+    import Play from '$lib/img/play.svg?component';
+    import Pause from '$lib/img/pause.svg?component';
+    import Next from '$lib/img/next.svg?component';
+    import Plus from '$lib/img/plus.svg?component';
 
     const DEFAULT_EDITOR_ID = 1;
 
@@ -117,13 +118,13 @@
         editorId={editor.id} />
 {/each}
 
-<style type="scss">
+<style lang="scss">
     .controls {
         display: flex;
         align-items: center;
         margin: 0.25rem 0;
 
-        :global & > button {
+        :global(& > button) {
             margin-right: 0.5rem;
         }
     }

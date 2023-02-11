@@ -2,10 +2,9 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <meta name="description" content="" />
-        <link rel="icon" href="%svelte.assets%/favicon.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        %svelte.head%
+        <link rel="icon" href="%sveltekit.assets%/favicon.png" />
+        <meta name="viewport" content="width=device-width" />
+        %sveltekit.head%
 
         <style>
             :root {
@@ -22,14 +21,14 @@
             }
             @font-face {
                 font-family: 'Cascadia Code';
-                src: url('%svelte.assets%/CascadiaCode.ttf');
+                src: url('%sveltekit.assets%/CascadiaCode.ttf');
             }
             html {
                 font-family: 'Cascadia Code';
             }
             html,
             body,
-            #svelte {
+            #html-preview-root {
                 height: 100%;
                 margin: 0;
                 background-color: var(--off-blue);
@@ -37,7 +36,9 @@
             }
         </style>
     </head>
-    <body>
-        <div id="svelte">%svelte.body%</div>
+    <body data-sveltekit-preload-data="hover">
+        <div style="display: contents" id="html-preview-root">
+            %sveltekit.body%
+        </div>
     </body>
 </html>
