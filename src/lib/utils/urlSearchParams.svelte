@@ -16,10 +16,11 @@
     export function initializeFromUrlSearchParams(): InitState {
         const defaultValues = {
             editors: [{ id: 1, code: '\n\n\n\n' }],
-
-            // Svelte seems to break if style tag is written in string directly, sveltejs/svelte#6923
-            style: '<' + `style>\n  \n</style>`,
+            style: '<style>\n\n</style>',
         };
+
+        // Svelte magically adds " *{}" in the style tag. Remove it.
+        defaultValues.style = defaultValues.style.replace(' *{}', '');
 
         if (!browser) {
             return defaultValues;

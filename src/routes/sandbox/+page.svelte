@@ -51,8 +51,8 @@
     }
 
     function debugChanges(expected: HTMLElement, actual: HTMLElement) {
-        const expectedOuterHTML = expected.outerHTML;
-        const actualOuterHTML = actual.outerHTML;
+        const expectedOuterHTML = expected.outerHTML.replace(/\n/g, '');
+        const actualOuterHTML = actual.outerHTML.replace(/\n/g, '');
 
         if (expectedOuterHTML !== actualOuterHTML) {
             console.warn('DOM changes do not match', {
