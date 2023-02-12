@@ -2,37 +2,21 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <meta name="description" content="" />
         <link rel="icon" href="/html-preview/favicon.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        
-	<link rel="stylesheet" href="/html-preview/internal/assets/pages/index.svelte-e8a49e6b.css">
-	<link rel="modulepreload" href="/html-preview/internal/start-5a26b348.js">
-	<link rel="modulepreload" href="/html-preview/internal/chunks/vendor-d81b3668.js">
-	<link rel="modulepreload" href="/html-preview/internal/chunks/paths-fb6b994c.js">
-	<link rel="modulepreload" href="/html-preview/internal/layout.svelte-ed5ac3b8.js">
-	<link rel="modulepreload" href="/html-preview/internal/pages/index.svelte-88e497ef.js">
-			<script type="module">
-				import { start } from "/html-preview/internal/start-5a26b348.js";
-				start({
-					target: document.querySelector("#svelte"),
-					paths: {"base":"/html-preview","assets":"/html-preview"},
-					session: {},
-					route: true,
-					spa: false,
-					trailing_slash: "never",
-					hydrate: {
-						status: 200,
-						error: null,
-						nodes: [
-							import("/html-preview/internal/layout.svelte-ed5ac3b8.js"),
-						import("/html-preview/internal/pages/index.svelte-88e497ef.js")
-						],
-						url: new URL("http://sveltekit-prerender/html-preview"),
-						params: {}
-					}
-				});
-			</script>
+        <meta name="viewport" content="width=device-width" />
+        <meta name="debug" content="1.0.0" />
+        <meta http-equiv="content-security-policy" content="">
+		<link href="/html-preview/internal/immutable/assets/_page-e1de393a.css" rel="stylesheet">
+		<link href="/html-preview/internal/immutable/assets/codemirror-eb494ea9.css" rel="stylesheet">
+		<link rel="modulepreload" href="/html-preview/internal/immutable/start-508df68a.js">
+		<link rel="modulepreload" href="/html-preview/internal/immutable/chunks/index-ce1bfe31.js">
+		<link rel="modulepreload" href="/html-preview/internal/immutable/chunks/singletons-b23181ee.js">
+		<link rel="modulepreload" href="/html-preview/internal/immutable/chunks/paths-275c07e6.js">
+		<link rel="modulepreload" href="/html-preview/internal/immutable/chunks/preload-helper-f8376bb0.js">
+		<link rel="modulepreload" href="/html-preview/internal/immutable/components/layout.svelte-590881eb.js">
+		<link rel="modulepreload" href="/html-preview/internal/immutable/components/pages/_page.svelte-d6882a38.js">
+		<link rel="modulepreload" href="/html-preview/internal/immutable/modules/pages/_page.ts-ed610ca4.js">
+		<link rel="modulepreload" href="/html-preview/internal/immutable/chunks/_page-de0ef88a.js">
 
         <style>
             :root {
@@ -56,7 +40,7 @@
             }
             html,
             body,
-            #svelte {
+            #html-preview-root {
                 height: 100%;
                 margin: 0;
                 background-color: var(--off-blue);
@@ -64,21 +48,22 @@
             }
         </style>
     </head>
-    <body>
-        <div id="svelte">
+    <body data-sveltekit-preload-data="hover">
+        <div style="display: contents" id="html-preview-root">
+            
 
 
-<main class="wrapper svelte-1r0igns"><h1>HTML Preview</h1>
+<main class="wrapper svelte-1y53fgs"><h1>HTML Preview</h1>
 
     <p>Test and share snippets of HTML and state tranformations with others.
-        <a rel="external" href="/html-preview/?code=N4IgzgLgngNgpiAXCAPJWcB8AdAdgAnwAd9g9DCAzAe1wgFowBLALzkXwEYA6AJgCc4AWwDc5fAF9xAbX7V4AXmzgIAQwgBXMMoC6pcYQDG86vw4ALahCJNcAazEEKNOo1bt8A4Y8JTcKAHp0eEwQABoQOAATJghTMCRpUCYopE4I4yiEZBQiHCcAYRgmQztiGFUofDj8MDg4fGKANwbBAHMmWnwNIij1ODxAvMGYpvw5RWVIdS1lfMJBgNHQiTDk1MReDOospFRhwuLS8srq6lr6xqYW8bgOrp6%2BiAH-AIOUUfH5OCUVGe0QPN8AAJOAwGDnADuphgUUWyxAEh0EiAA" class="svelte-1r0igns">For insipiration see ARIA-live region example.</a>
+        <a rel="external" href="/html-preview/?code=N4IgzgLgngNgpiAXCAPJWcB8AdAdgAnwAd9g9DCAzAe1wgFowBLALzkXwEYA6AJgCc4AWwDc5fAF9xAbX7V4AXmzgIAQwgBXMMoC6pcYQDG86vw4ALahCJNcAazEEKNOo1bt8A4Y8JTcKAHp0eEwQABoQOAATJghTMCRpUCYopE4I4yiEZBQiHCcAYRgmQztiGFUofDj8MDg4fGKANwbBAHMmWnwNIij1ODxAvMGYpvw5RWVIdS1lfMJBgNHQiTDk1MReDOospFRhwuLS8srq6lr6xqYW8bgOrp6%2BiAH-AIOUUfH5OCUVGe0QPN8AAJOAwGDnADuphgUUWyxAEh0EiAA" class="svelte-1y53fgs">For insipiration see ARIA-live region example.</a>
 
         Remember to click play to see state transformations.
     </p>
 
-    <iframe class="sandbox svelte-1r0igns" security="restricted" src="/html-preview/sandbox" title="Sandbox"></iframe>
+    <iframe class="sandbox svelte-1y53fgs" security="restricted" src="/html-preview/sandbox" title="Sandbox"></iframe>
 
-    <div class="controls svelte-eiz9iq"><button aria-label="Loop states" title="Loop states" class="svelte-q07j84">
+    <div class="controls svelte-12kzv88"><button aria-label="Loop states" title="Loop states" class="svelte-q07j84">
     <div aria-hidden="true" class="icon-wrapper svelte-q07j84"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="play-circle"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path><path d="M12.34 7.45a1.7 1.7 0 0 0-1.85-.3 1.6 1.6 0 0 0-1 1.48v6.74a1.6 1.6 0 0 0 1 1.48 1.68 1.68 0 0 0 .69.15 1.74 1.74 0 0 0 1.16-.45L16 13.18a1.6 1.6 0 0 0 0-2.36zm-.84 7.15V9.4l2.81 2.6z"></path></g></g></svg></div>
 </button>
 
@@ -109,14 +94,32 @@
     
 </div>
 
-    <div class="codemirror-container svelte-1bj68yz"><textarea class="svelte-1bj68yz">&lt;style&gt;
+    <div class="codemirror-container svelte-1bj68yz"><textarea class="svelte-1bj68yz"><style>
   
-&lt;/style&gt;</textarea>
+</style></textarea>
 
     
 </div>
 </main>
 
-</div>
+
+		<script type="module" data-sveltekit-hydrate="jdu35x">
+			import { start } from "/html-preview/internal/immutable/start-508df68a.js";
+
+			start({
+				assets: "/html-preview",
+				env: {},
+				target: document.querySelector('[data-sveltekit-hydrate="jdu35x"]').parentNode,
+				version: "1676198740655",
+				hydrate: {
+					node_ids: [0, 2],
+					data: [null,null],
+					form: null,
+					error: null
+				}
+			});
+		</script>
+	
+        </div>
     </body>
 </html>
