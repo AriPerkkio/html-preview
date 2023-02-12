@@ -412,7 +412,7 @@ function instance$7($$self, $$props, $$invalidate) {
     if (!ref) {
       throw new Error("Missing ref to textarea");
     }
-    const { default: CodeMirror2 } = await __vitePreload(() => import("../../chunks/codemirror-ac13ab4e.js"), true ? ["../../chunks/codemirror-ac13ab4e.js","../../assets/codemirror-eb494ea9.css"] : void 0, import.meta.url);
+    const { default: CodeMirror2 } = await __vitePreload(() => import("../../chunks/codemirror-53ce568b.js"), true ? ["../../chunks/codemirror-53ce568b.js","../../assets/codemirror-eb494ea9.css"] : void 0, import.meta.url);
     const editor = CodeMirror2.fromTextArea(ref, {
       lineNumbers: true,
       lineWrapping: true,
