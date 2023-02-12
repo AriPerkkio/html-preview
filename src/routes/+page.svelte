@@ -1,7 +1,8 @@
-<script lang="ts">
+<script context="module" lang="ts">
     import { onMount } from 'svelte';
     import { base } from '$app/paths';
     import { browser } from '$app/environment';
+
     import CodeEditors from '$lib/CodeEditors.svelte';
     import type { CodeEditorsEvents } from '$lib/CodeEditors.svelte';
     import StyleEditor from '$lib/StyleEditor.svelte';
@@ -12,7 +13,9 @@
     } from '$lib/utils/urlSearchParams.svelte';
     import IconButton from '$lib/IconButton.svelte';
     import Share from '$lib/img/share.svg?component';
+</script>
 
+<script lang="ts">
     const refs: { sandbox?: HTMLIFrameElement } = {};
     let exportUrl: string | undefined;
 

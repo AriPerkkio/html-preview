@@ -1,22 +1,24 @@
 <script context="module" lang="ts">
+    import { createEventDispatcher } from 'svelte';
+
+    import Play from '$lib/img/play.svg?component';
+    import Pause from '$lib/img/pause.svg?component';
+    import Next from '$lib/img/next.svg?component';
+    import Plus from '$lib/img/plus.svg?component';
+    import CodeMirror from '$lib/CodeMirror.svelte';
+    import IconButton from './IconButton.svelte';
+    import type { CodeMirrorEvents } from '$lib/CodeMirror.svelte';
+
+    const DEFAULT_EDITOR_ID = 1;
+
     type ChangeEvent = { value: string };
     export type CodeEditorsEvents = { change: ChangeEvent };
     export type EditorType = { id: number; code: string };
 </script>
 
 <script lang="ts">
-    import { createEventDispatcher } from 'svelte';
-    import CodeMirror from '$lib/CodeMirror.svelte';
-    import type { CodeMirrorEvents } from '$lib/CodeMirror.svelte';
-    import IconButton from './IconButton.svelte';
-    import Play from '$lib/img/play.svg?component';
-    import Pause from '$lib/img/pause.svg?component';
-    import Next from '$lib/img/next.svg?component';
-    import Plus from '$lib/img/plus.svg?component';
-
-    const DEFAULT_EDITOR_ID = 1;
-
     const dispatch = createEventDispatcher<{ change: ChangeEvent }>();
+
     export let editors: EditorType[] = [{ id: DEFAULT_EDITOR_ID, code: '' }];
     let activeEditorId = editors[0]?.id || DEFAULT_EDITOR_ID;
     let cycleCleanup: null | (() => void);

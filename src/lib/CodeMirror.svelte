@@ -1,14 +1,15 @@
 <script context="module" lang="ts">
+    import { createEventDispatcher, onMount } from 'svelte';
+
+    import IconButton from '$lib/IconButton.svelte';
+    import Close from '$lib/img/close.svg?component';
+
     type ChangeEvent = { value: string; editorId: number };
     type RemoveEvent = { editorId: number };
     export type CodeMirrorEvents = { change: ChangeEvent; remove: RemoveEvent };
 </script>
 
 <script lang="ts">
-    import { createEventDispatcher, onMount } from 'svelte';
-    import IconButton from '$lib/IconButton.svelte';
-    import Close from '$lib/img/close.svg?component';
-
     export let code = '';
     export let editorId: number;
     export let active = false;

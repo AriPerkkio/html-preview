@@ -1,4 +1,7 @@
 <script context="module" lang="ts">
+    import { onMount } from 'svelte';
+    import { update } from 'virtual-dom-nodes';
+
     export type SandboxMessage = {
         type: 'STYLE_CHANGE' | 'CONTENT_CHANGE';
         value: string;
@@ -6,9 +9,6 @@
 </script>
 
 <script lang="ts">
-    import { onMount } from 'svelte';
-    import { update } from 'virtual-dom-nodes';
-
     let state = '';
 
     onMount(() => {
