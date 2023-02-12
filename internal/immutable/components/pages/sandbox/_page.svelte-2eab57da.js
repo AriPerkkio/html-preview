@@ -1,4 +1,4 @@
-import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, a as space, l as claim_element, m as children, h as detach, c as claim_space, n as attr, b as insert_hydration, H as append_hydration, M as listen, C as noop, o as onMount, v as binding_callbacks } from "../../../chunks/index-ce1bfe31.js";
+import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, a as space, l as claim_element, m as children, h as detach, c as claim_space, n as attr, b as insert_hydration, H as append_hydration, R as listen, C as noop, o as onMount, v as binding_callbacks } from "../../../chunks/index-acfec45a.js";
 function isElement(node) {
   return node != null && node.nodeType === Node.ELEMENT_NODE;
 }
@@ -196,8 +196,8 @@ function create_fragment(ctx) {
   };
 }
 function debugChanges(expected, actual) {
-  const expectedOuterHTML = expected.outerHTML;
-  const actualOuterHTML = actual.outerHTML;
+  const expectedOuterHTML = expected.outerHTML.replace(/\n/g, "");
+  const actualOuterHTML = actual.outerHTML.replace(/\n/g, "");
   if (expectedOuterHTML !== actualOuterHTML) {
     console.warn("DOM changes do not match", { actualOuterHTML, expectedOuterHTML });
   }

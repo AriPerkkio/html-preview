@@ -1,8 +1,81 @@
-import { S as SvelteComponent, i as init, s as safe_not_equal, D as create_slot, J as assign, k as element, l as claim_element, m as children, h as detach, n as attr, K as set_attributes, L as toggle_class, b as insert_hydration, H as append_hydration, M as listen, E as update_slot_base, F as get_all_dirty_from_scope, G as get_slot_changes, N as get_spread_update, f as transition_in, t as transition_out, O as exclude_internal_props, P as bubble, Q as svg_element, R as claim_svg_element, T as set_svg_attributes, C as noop, a as space, c as claim_space, g as group_outros, d as check_outros, o as onMount, U as createEventDispatcher, x as create_component, y as claim_component, z as mount_component, A as destroy_component, v as binding_callbacks, e as empty, V as update_keyed_each, W as bind, X as add_flush_callback, Y as outro_and_destroy_block, q as text, r as claim_text, Z as src_url_equal } from "../../chunks/index-ce1bfe31.js";
+import { S as SvelteComponent, i as init, s as safe_not_equal, J as assign, K as svg_element, L as claim_svg_element, m as children, h as detach, n as attr, M as set_svg_attributes, b as insert_hydration, H as append_hydration, N as get_spread_update, C as noop, O as exclude_internal_props, D as create_slot, k as element, l as claim_element, P as set_attributes, Q as toggle_class, R as listen, E as update_slot_base, F as get_all_dirty_from_scope, G as get_slot_changes, f as transition_in, t as transition_out, T as bubble, a as space, c as claim_space, g as group_outros, d as check_outros, o as onMount, U as createEventDispatcher, x as create_component, y as claim_component, z as mount_component, A as destroy_component, v as binding_callbacks, V as bind, W as add_flush_callback, e as empty, X as update_keyed_each, Y as outro_and_destroy_block, q as text, r as claim_text, Z as src_url_equal } from "../../chunks/index-acfec45a.js";
 import { b as base } from "../../chunks/paths-275c07e6.js";
 import { _ as __vitePreload } from "../../chunks/preload-helper-f8376bb0.js";
-const IconButton_svelte_svelte_type_style_lang = "";
 function create_fragment$a(ctx) {
+  let svg;
+  let g;
+  let path;
+  let svg_levels = [
+    { xmlns: "http://www.w3.org/2000/svg" },
+    { viewBox: "0 0 24 24" },
+    /*$$props*/
+    ctx[0]
+  ];
+  let svg_data = {};
+  for (let i = 0; i < svg_levels.length; i += 1) {
+    svg_data = assign(svg_data, svg_levels[i]);
+  }
+  return {
+    c() {
+      svg = svg_element("svg");
+      g = svg_element("g");
+      path = svg_element("path");
+      this.h();
+    },
+    l(nodes) {
+      svg = claim_svg_element(nodes, "svg", { xmlns: true, viewBox: true });
+      var svg_nodes = children(svg);
+      g = claim_svg_element(svg_nodes, "g", { "data-name": true });
+      var g_nodes = children(g);
+      path = claim_svg_element(g_nodes, "path", { d: true, "data-name": true });
+      children(path).forEach(detach);
+      g_nodes.forEach(detach);
+      svg_nodes.forEach(detach);
+      this.h();
+    },
+    h() {
+      attr(path, "d", "M18 15a3 3 0 0 0-2.1.86L8 12.34v-.67l7.9-3.53A3 3 0 1 0 15 6v.34L7.1 9.86a3 3 0 1 0 0 4.28l7.9 3.53V18a3 3 0 1 0 3-3zm0-10a1 1 0 1 1-1 1 1 1 0 0 1 1-1zM5 13a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm13 6a1 1 0 1 1 1-1 1 1 0 0 1-1 1z");
+      attr(path, "data-name", "share");
+      attr(g, "data-name", "Layer 2");
+      set_svg_attributes(svg, svg_data);
+    },
+    m(target, anchor) {
+      insert_hydration(target, svg, anchor);
+      append_hydration(svg, g);
+      append_hydration(g, path);
+    },
+    p(ctx2, [dirty]) {
+      set_svg_attributes(svg, svg_data = get_spread_update(svg_levels, [
+        { xmlns: "http://www.w3.org/2000/svg" },
+        { viewBox: "0 0 24 24" },
+        dirty & /*$$props*/
+        1 && /*$$props*/
+        ctx2[0]
+      ]));
+    },
+    i: noop,
+    o: noop,
+    d(detaching) {
+      if (detaching)
+        detach(svg);
+    }
+  };
+}
+function instance$a($$self, $$props, $$invalidate) {
+  $$self.$$set = ($$new_props) => {
+    $$invalidate(0, $$props = assign(assign({}, $$props), exclude_internal_props($$new_props)));
+  };
+  $$props = exclude_internal_props($$props);
+  return [$$props];
+}
+class Share extends SvelteComponent {
+  constructor(options) {
+    super();
+    init(this, options, instance$a, create_fragment$a, safe_not_equal, {});
+  }
+}
+const IconButton_svelte_svelte_type_style_lang = "";
+function create_fragment$9(ctx) {
   let button;
   let div;
   let current;
@@ -120,7 +193,7 @@ function create_fragment$a(ctx) {
     }
   };
 }
-function instance$a($$self, $$props, $$invalidate) {
+function instance$9($$self, $$props, $$invalidate) {
   let { $$slots: slots = {}, $$scope } = $$props;
   function click_handler(event) {
     bubble.call(this, $$self, event);
@@ -136,10 +209,179 @@ function instance$a($$self, $$props, $$invalidate) {
 class IconButton extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance$a, create_fragment$a, safe_not_equal, {});
+    init(this, options, instance$9, create_fragment$9, safe_not_equal, {});
   }
 }
-function create_fragment$9(ctx) {
+var LZString = function() {
+  function o(o2, r2) {
+    if (!t[o2]) {
+      t[o2] = {};
+      for (var n = 0; n < o2.length; n++)
+        t[o2][o2.charAt(n)] = n;
+    }
+    return t[o2][r2];
+  }
+  var r = String.fromCharCode, e = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-$", t = {}, i = {
+    compressToEncodedURIComponent: function(o2) {
+      return null == o2 ? "" : i._compress(o2, 6, function(o3) {
+        return e.charAt(o3);
+      });
+    },
+    decompressFromEncodedURIComponent: function(r2) {
+      return null == r2 ? "" : "" == r2 ? null : (r2 = r2.replace(/ /g, "+"), i._decompress(r2.length, 32, function(n) {
+        return o(e, r2.charAt(n));
+      }));
+    },
+    _compress: function(o2, r2, n) {
+      if (null == o2)
+        return "";
+      var e2, t2, i2, s = {}, p = {}, u = "", c = "", a = "", l = 2, f = 3, h = 2, d = [], m = 0, v = 0;
+      for (i2 = 0; i2 < o2.length; i2 += 1)
+        if (u = o2.charAt(i2), Object.prototype.hasOwnProperty.call(s, u) || (s[u] = f++, p[u] = true), c = a + u, Object.prototype.hasOwnProperty.call(s, c))
+          a = c;
+        else {
+          if (Object.prototype.hasOwnProperty.call(p, a)) {
+            if (a.charCodeAt(0) < 256) {
+              for (e2 = 0; h > e2; e2++)
+                m <<= 1, v == r2 - 1 ? (v = 0, d.push(n(m)), m = 0) : v++;
+              for (t2 = a.charCodeAt(0), e2 = 0; 8 > e2; e2++)
+                m = m << 1 | 1 & t2, v == r2 - 1 ? (v = 0, d.push(n(m)), m = 0) : v++, t2 >>= 1;
+            } else {
+              for (t2 = 1, e2 = 0; h > e2; e2++)
+                m = m << 1 | t2, v == r2 - 1 ? (v = 0, d.push(n(m)), m = 0) : v++, t2 = 0;
+              for (t2 = a.charCodeAt(0), e2 = 0; 16 > e2; e2++)
+                m = m << 1 | 1 & t2, v == r2 - 1 ? (v = 0, d.push(n(m)), m = 0) : v++, t2 >>= 1;
+            }
+            l--, 0 == l && (l = Math.pow(2, h), h++), delete p[a];
+          } else
+            for (t2 = s[a], e2 = 0; h > e2; e2++)
+              m = m << 1 | 1 & t2, v == r2 - 1 ? (v = 0, d.push(n(m)), m = 0) : v++, t2 >>= 1;
+          l--, 0 == l && (l = Math.pow(2, h), h++), s[c] = f++, a = String(u);
+        }
+      if ("" !== a) {
+        if (Object.prototype.hasOwnProperty.call(p, a)) {
+          if (a.charCodeAt(0) < 256) {
+            for (e2 = 0; h > e2; e2++)
+              m <<= 1, v == r2 - 1 ? (v = 0, d.push(n(m)), m = 0) : v++;
+            for (t2 = a.charCodeAt(0), e2 = 0; 8 > e2; e2++)
+              m = m << 1 | 1 & t2, v == r2 - 1 ? (v = 0, d.push(n(m)), m = 0) : v++, t2 >>= 1;
+          } else {
+            for (t2 = 1, e2 = 0; h > e2; e2++)
+              m = m << 1 | t2, v == r2 - 1 ? (v = 0, d.push(n(m)), m = 0) : v++, t2 = 0;
+            for (t2 = a.charCodeAt(0), e2 = 0; 16 > e2; e2++)
+              m = m << 1 | 1 & t2, v == r2 - 1 ? (v = 0, d.push(n(m)), m = 0) : v++, t2 >>= 1;
+          }
+          l--, 0 == l && (l = Math.pow(2, h), h++), delete p[a];
+        } else
+          for (t2 = s[a], e2 = 0; h > e2; e2++)
+            m = m << 1 | 1 & t2, v == r2 - 1 ? (v = 0, d.push(n(m)), m = 0) : v++, t2 >>= 1;
+        l--, 0 == l && (l = Math.pow(2, h), h++);
+      }
+      for (t2 = 2, e2 = 0; h > e2; e2++)
+        m = m << 1 | 1 & t2, v == r2 - 1 ? (v = 0, d.push(n(m)), m = 0) : v++, t2 >>= 1;
+      for (; ; ) {
+        if (m <<= 1, v == r2 - 1) {
+          d.push(n(m));
+          break;
+        }
+        v++;
+      }
+      return d.join("");
+    },
+    _decompress: function(o2, n, e2) {
+      var i2, s, p, u, c, a, l, f = [], h = 4, d = 4, m = 3, v = "", w = [], A = { val: e2(0), position: n, index: 1 };
+      for (i2 = 0; 3 > i2; i2 += 1)
+        f[i2] = i2;
+      for (p = 0, c = Math.pow(2, 2), a = 1; a != c; )
+        u = A.val & A.position, A.position >>= 1, 0 == A.position && (A.position = n, A.val = e2(A.index++)), p |= (u > 0 ? 1 : 0) * a, a <<= 1;
+      switch (p) {
+        case 0:
+          for (p = 0, c = Math.pow(2, 8), a = 1; a != c; )
+            u = A.val & A.position, A.position >>= 1, 0 == A.position && (A.position = n, A.val = e2(A.index++)), p |= (u > 0 ? 1 : 0) * a, a <<= 1;
+          l = r(p);
+          break;
+        case 1:
+          for (p = 0, c = Math.pow(2, 16), a = 1; a != c; )
+            u = A.val & A.position, A.position >>= 1, 0 == A.position && (A.position = n, A.val = e2(A.index++)), p |= (u > 0 ? 1 : 0) * a, a <<= 1;
+          l = r(p);
+          break;
+        case 2:
+          return "";
+      }
+      for (f[3] = l, s = l, w.push(l); ; ) {
+        if (A.index > o2)
+          return "";
+        for (p = 0, c = Math.pow(2, m), a = 1; a != c; )
+          u = A.val & A.position, A.position >>= 1, 0 == A.position && (A.position = n, A.val = e2(A.index++)), p |= (u > 0 ? 1 : 0) * a, a <<= 1;
+        switch (l = p) {
+          case 0:
+            for (p = 0, c = Math.pow(2, 8), a = 1; a != c; )
+              u = A.val & A.position, A.position >>= 1, 0 == A.position && (A.position = n, A.val = e2(A.index++)), p |= (u > 0 ? 1 : 0) * a, a <<= 1;
+            f[d++] = r(p), l = d - 1, h--;
+            break;
+          case 1:
+            for (p = 0, c = Math.pow(2, 16), a = 1; a != c; )
+              u = A.val & A.position, A.position >>= 1, 0 == A.position && (A.position = n, A.val = e2(A.index++)), p |= (u > 0 ? 1 : 0) * a, a <<= 1;
+            f[d++] = r(p), l = d - 1, h--;
+            break;
+          case 2:
+            return w.join("");
+        }
+        if (0 == h && (h = Math.pow(2, m), m++), f[l])
+          v = f[l];
+        else {
+          if (l !== d)
+            return null;
+          v = s + s.charAt(0);
+        }
+        w.push(v), f[d++] = s + v.charAt(0), h--, s = v, 0 == h && (h = Math.pow(2, m), m++);
+      }
+    }
+  };
+  return i;
+}();
+const decompressFromEncodedURIComponent = LZString.decompressFromEncodedURIComponent;
+const compressToEncodedURIComponent = LZString.compressToEncodedURIComponent;
+function initializeFromUrlSearchParams() {
+  const defaultValues = {
+    editors: [{ id: 1, code: "\n\n\n\n" }],
+    style: "<style>\n\n</style>"
+  };
+  defaultValues.style = defaultValues.style.replace(" *{}", "");
+  const encoded = new URLSearchParams(document.location.search).get("code");
+  let json;
+  if (encoded) {
+    try {
+      const decoded = decompressFromEncodedURIComponent(encoded);
+      json = JSON.parse(decoded);
+    } catch (e) {
+      console.error("Unable to parse url search parameters", e);
+    }
+  }
+  if (hasProp(json, "style") && typeof json.style === "string") {
+    if (hasProp(json, "editors") && Array.isArray(json.editors)) {
+      if (json.editors.every(isEditor)) {
+        return { style: json.style, editors: json.editors };
+      }
+    }
+  }
+  return defaultValues;
+}
+function buildStatefulUrl(state) {
+  const encoded = compressToEncodedURIComponent(JSON.stringify(state));
+  const url = new URL(base, window.location.origin);
+  url.searchParams.set("code", encoded);
+  return url;
+}
+function isEditor(editor) {
+  return hasProp(editor, "id") && typeof editor.id === "number" && hasProp(editor, "code") && typeof editor.code === "string";
+}
+function hasProp(obj, key) {
+  if (!obj)
+    return false;
+  return key in obj;
+}
+function create_fragment$8(ctx) {
   let svg;
   let g;
   let path;
@@ -199,7 +441,7 @@ function create_fragment$9(ctx) {
     }
   };
 }
-function instance$9($$self, $$props, $$invalidate) {
+function instance$8($$self, $$props, $$invalidate) {
   $$self.$$set = ($$new_props) => {
     $$invalidate(0, $$props = assign(assign({}, $$props), exclude_internal_props($$new_props)));
   };
@@ -209,7 +451,7 @@ function instance$9($$self, $$props, $$invalidate) {
 class Close extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance$9, create_fragment$9, safe_not_equal, {});
+    init(this, options, instance$8, create_fragment$8, safe_not_equal, {});
   }
 }
 const CodeMirror_svelte_svelte_type_style_lang = "";
@@ -294,7 +536,7 @@ function create_default_slot$2(ctx) {
     }
   };
 }
-function create_fragment$8(ctx) {
+function create_fragment$7(ctx) {
   let div;
   let textarea;
   let t;
@@ -402,7 +644,7 @@ function create_fragment$8(ctx) {
     }
   };
 }
-function instance$8($$self, $$props, $$invalidate) {
+function instance$7($$self, $$props, $$invalidate) {
   let { code = "" } = $$props;
   let { editorId } = $$props;
   let { active = false } = $$props;
@@ -412,7 +654,7 @@ function instance$8($$self, $$props, $$invalidate) {
     if (!ref) {
       throw new Error("Missing ref to textarea");
     }
-    const { default: CodeMirror2 } = await __vitePreload(() => import("../../chunks/codemirror-49fd538a.js"), true ? ["../../chunks/codemirror-49fd538a.js","../../assets/codemirror-eb494ea9.css"] : void 0, import.meta.url);
+    const { default: CodeMirror2 } = await __vitePreload(() => import("../../chunks/codemirror-ac13ab4e.js"), true ? ["../../chunks/codemirror-ac13ab4e.js","../../assets/codemirror-eb494ea9.css"] : void 0, import.meta.url);
     const editor = CodeMirror2.fromTextArea(ref, {
       lineNumbers: true,
       lineWrapping: true,
@@ -460,7 +702,7 @@ function instance$8($$self, $$props, $$invalidate) {
 class CodeMirror extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance$8, create_fragment$8, safe_not_equal, {
+    init(this, options, instance$7, create_fragment$7, safe_not_equal, {
       code: 0,
       editorId: 5,
       active: 1,
@@ -468,262 +710,87 @@ class CodeMirror extends SvelteComponent {
     });
   }
 }
-function create_fragment$7(ctx) {
-  let svg;
-  let g1;
-  let g0;
-  let path0;
-  let path1;
-  let svg_levels = [
-    { xmlns: "http://www.w3.org/2000/svg" },
-    { viewBox: "0 0 24 24" },
-    /*$$props*/
-    ctx[0]
-  ];
-  let svg_data = {};
-  for (let i = 0; i < svg_levels.length; i += 1) {
-    svg_data = assign(svg_data, svg_levels[i]);
-  }
-  return {
-    c() {
-      svg = svg_element("svg");
-      g1 = svg_element("g");
-      g0 = svg_element("g");
-      path0 = svg_element("path");
-      path1 = svg_element("path");
-      this.h();
-    },
-    l(nodes) {
-      svg = claim_svg_element(nodes, "svg", { xmlns: true, viewBox: true });
-      var svg_nodes = children(svg);
-      g1 = claim_svg_element(svg_nodes, "g", { "data-name": true });
-      var g1_nodes = children(g1);
-      g0 = claim_svg_element(g1_nodes, "g", { "data-name": true });
-      var g0_nodes = children(g0);
-      path0 = claim_svg_element(g0_nodes, "path", { d: true });
-      children(path0).forEach(detach);
-      path1 = claim_svg_element(g0_nodes, "path", { d: true });
-      children(path1).forEach(detach);
-      g0_nodes.forEach(detach);
-      g1_nodes.forEach(detach);
-      svg_nodes.forEach(detach);
-      this.h();
-    },
-    h() {
-      attr(path0, "d", "M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z");
-      attr(path1, "d", "M12.34 7.45a1.7 1.7 0 0 0-1.85-.3 1.6 1.6 0 0 0-1 1.48v6.74a1.6 1.6 0 0 0 1 1.48 1.68 1.68 0 0 0 .69.15 1.74 1.74 0 0 0 1.16-.45L16 13.18a1.6 1.6 0 0 0 0-2.36zm-.84 7.15V9.4l2.81 2.6z");
-      attr(g0, "data-name", "play-circle");
-      attr(g1, "data-name", "Layer 2");
-      set_svg_attributes(svg, svg_data);
-    },
-    m(target, anchor) {
-      insert_hydration(target, svg, anchor);
-      append_hydration(svg, g1);
-      append_hydration(g1, g0);
-      append_hydration(g0, path0);
-      append_hydration(g0, path1);
-    },
-    p(ctx2, [dirty]) {
-      set_svg_attributes(svg, svg_data = get_spread_update(svg_levels, [
-        { xmlns: "http://www.w3.org/2000/svg" },
-        { viewBox: "0 0 24 24" },
-        dirty & /*$$props*/
-        1 && /*$$props*/
-        ctx2[0]
-      ]));
-    },
-    i: noop,
-    o: noop,
-    d(detaching) {
-      if (detaching)
-        detach(svg);
-    }
-  };
-}
-function instance$7($$self, $$props, $$invalidate) {
-  $$self.$$set = ($$new_props) => {
-    $$invalidate(0, $$props = assign(assign({}, $$props), exclude_internal_props($$new_props)));
-  };
-  $$props = exclude_internal_props($$props);
-  return [$$props];
-}
-class Play extends SvelteComponent {
-  constructor(options) {
-    super();
-    init(this, options, instance$7, create_fragment$7, safe_not_equal, {});
-  }
-}
 function create_fragment$6(ctx) {
-  let svg;
-  let g1;
-  let g0;
-  let path0;
-  let path1;
-  let svg_levels = [
-    { xmlns: "http://www.w3.org/2000/svg" },
-    { viewBox: "0 0 24 24" },
-    /*$$props*/
-    ctx[0]
-  ];
-  let svg_data = {};
-  for (let i = 0; i < svg_levels.length; i += 1) {
-    svg_data = assign(svg_data, svg_levels[i]);
+  let codemirror;
+  let updating_code;
+  let current;
+  function codemirror_code_binding(value) {
+    ctx[1](value);
   }
+  let codemirror_props = { editorId: 0, canBeRemoved: false };
+  if (
+    /*code*/
+    ctx[0] !== void 0
+  ) {
+    codemirror_props.code = /*code*/
+    ctx[0];
+  }
+  codemirror = new CodeMirror({ props: codemirror_props });
+  binding_callbacks.push(() => bind(codemirror, "code", codemirror_code_binding));
+  codemirror.$on(
+    "change",
+    /*change_handler*/
+    ctx[2]
+  );
   return {
     c() {
-      svg = svg_element("svg");
-      g1 = svg_element("g");
-      g0 = svg_element("g");
-      path0 = svg_element("path");
-      path1 = svg_element("path");
-      this.h();
+      create_component(codemirror.$$.fragment);
     },
     l(nodes) {
-      svg = claim_svg_element(nodes, "svg", { xmlns: true, viewBox: true });
-      var svg_nodes = children(svg);
-      g1 = claim_svg_element(svg_nodes, "g", { "data-name": true });
-      var g1_nodes = children(g1);
-      g0 = claim_svg_element(g1_nodes, "g", { "data-name": true });
-      var g0_nodes = children(g0);
-      path0 = claim_svg_element(g0_nodes, "path", { d: true });
-      children(path0).forEach(detach);
-      path1 = claim_svg_element(g0_nodes, "path", { d: true });
-      children(path1).forEach(detach);
-      g0_nodes.forEach(detach);
-      g1_nodes.forEach(detach);
-      svg_nodes.forEach(detach);
-      this.h();
-    },
-    h() {
-      attr(path0, "d", "M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z");
-      attr(path1, "d", "M15 8a1 1 0 0 0-1 1v6a1 1 0 0 0 2 0V9a1 1 0 0 0-1-1zM9 8a1 1 0 0 0-1 1v6a1 1 0 0 0 2 0V9a1 1 0 0 0-1-1z");
-      attr(g0, "data-name", "pause-circle");
-      attr(g1, "data-name", "Layer 2");
-      set_svg_attributes(svg, svg_data);
+      claim_component(codemirror.$$.fragment, nodes);
     },
     m(target, anchor) {
-      insert_hydration(target, svg, anchor);
-      append_hydration(svg, g1);
-      append_hydration(g1, g0);
-      append_hydration(g0, path0);
-      append_hydration(g0, path1);
+      mount_component(codemirror, target, anchor);
+      current = true;
     },
     p(ctx2, [dirty]) {
-      set_svg_attributes(svg, svg_data = get_spread_update(svg_levels, [
-        { xmlns: "http://www.w3.org/2000/svg" },
-        { viewBox: "0 0 24 24" },
-        dirty & /*$$props*/
-        1 && /*$$props*/
-        ctx2[0]
-      ]));
+      const codemirror_changes = {};
+      if (!updating_code && dirty & /*code*/
+      1) {
+        updating_code = true;
+        codemirror_changes.code = /*code*/
+        ctx2[0];
+        add_flush_callback(() => updating_code = false);
+      }
+      codemirror.$set(codemirror_changes);
     },
-    i: noop,
-    o: noop,
+    i(local) {
+      if (current)
+        return;
+      transition_in(codemirror.$$.fragment, local);
+      current = true;
+    },
+    o(local) {
+      transition_out(codemirror.$$.fragment, local);
+      current = false;
+    },
     d(detaching) {
-      if (detaching)
-        detach(svg);
+      destroy_component(codemirror, detaching);
     }
   };
 }
 function instance$6($$self, $$props, $$invalidate) {
-  $$self.$$set = ($$new_props) => {
-    $$invalidate(0, $$props = assign(assign({}, $$props), exclude_internal_props($$new_props)));
+  let { code = "" } = $$props;
+  function codemirror_code_binding(value) {
+    code = value;
+    $$invalidate(0, code);
+  }
+  function change_handler(event) {
+    bubble.call(this, $$self, event);
+  }
+  $$self.$$set = ($$props2) => {
+    if ("code" in $$props2)
+      $$invalidate(0, code = $$props2.code);
   };
-  $$props = exclude_internal_props($$props);
-  return [$$props];
+  return [code, codemirror_code_binding, change_handler];
 }
-class Pause extends SvelteComponent {
+class StyleEditor extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance$6, create_fragment$6, safe_not_equal, {});
+    init(this, options, instance$6, create_fragment$6, safe_not_equal, { code: 0 });
   }
 }
 function create_fragment$5(ctx) {
-  let svg;
-  let g1;
-  let g0;
-  let path0;
-  let path1;
-  let svg_levels = [
-    { xmlns: "http://www.w3.org/2000/svg" },
-    { viewBox: "0 0 24 24" },
-    /*$$props*/
-    ctx[0]
-  ];
-  let svg_data = {};
-  for (let i = 0; i < svg_levels.length; i += 1) {
-    svg_data = assign(svg_data, svg_levels[i]);
-  }
-  return {
-    c() {
-      svg = svg_element("svg");
-      g1 = svg_element("g");
-      g0 = svg_element("g");
-      path0 = svg_element("path");
-      path1 = svg_element("path");
-      this.h();
-    },
-    l(nodes) {
-      svg = claim_svg_element(nodes, "svg", { xmlns: true, viewBox: true });
-      var svg_nodes = children(svg);
-      g1 = claim_svg_element(svg_nodes, "g", { "data-name": true });
-      var g1_nodes = children(g1);
-      g0 = claim_svg_element(g1_nodes, "g", { "data-name": true });
-      var g0_nodes = children(g0);
-      path0 = claim_svg_element(g0_nodes, "path", { d: true });
-      children(path0).forEach(detach);
-      path1 = claim_svg_element(g0_nodes, "path", { d: true });
-      children(path1).forEach(detach);
-      g0_nodes.forEach(detach);
-      g1_nodes.forEach(detach);
-      svg_nodes.forEach(detach);
-      this.h();
-    },
-    h() {
-      attr(path0, "d", "M17 12v-.09a.88.88 0 0 0-.06-.28.72.72 0 0 0-.11-.19 1 1 0 0 0-.09-.13l-2.86-3a1 1 0 0 0-1.45 1.38L13.66 11H8a1 1 0 0 0 0 2h5.59l-1.3 1.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3-3a1 1 0 0 0 .21-.32A1 1 0 0 0 17 12z");
-      attr(path1, "d", "M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z");
-      attr(g0, "data-name", "arrow-circle-right");
-      attr(g1, "data-name", "Layer 2");
-      set_svg_attributes(svg, svg_data);
-    },
-    m(target, anchor) {
-      insert_hydration(target, svg, anchor);
-      append_hydration(svg, g1);
-      append_hydration(g1, g0);
-      append_hydration(g0, path0);
-      append_hydration(g0, path1);
-    },
-    p(ctx2, [dirty]) {
-      set_svg_attributes(svg, svg_data = get_spread_update(svg_levels, [
-        { xmlns: "http://www.w3.org/2000/svg" },
-        { viewBox: "0 0 24 24" },
-        dirty & /*$$props*/
-        1 && /*$$props*/
-        ctx2[0]
-      ]));
-    },
-    i: noop,
-    o: noop,
-    d(detaching) {
-      if (detaching)
-        detach(svg);
-    }
-  };
-}
-function instance$5($$self, $$props, $$invalidate) {
-  $$self.$$set = ($$new_props) => {
-    $$invalidate(0, $$props = assign(assign({}, $$props), exclude_internal_props($$new_props)));
-  };
-  $$props = exclude_internal_props($$props);
-  return [$$props];
-}
-class Next extends SvelteComponent {
-  constructor(options) {
-    super();
-    init(this, options, instance$5, create_fragment$5, safe_not_equal, {});
-  }
-}
-function create_fragment$4(ctx) {
   let svg;
   let g1;
   let g0;
@@ -795,7 +862,7 @@ function create_fragment$4(ctx) {
     }
   };
 }
-function instance$4($$self, $$props, $$invalidate) {
+function instance$5($$self, $$props, $$invalidate) {
   $$self.$$set = ($$new_props) => {
     $$invalidate(0, $$props = assign(assign({}, $$props), exclude_internal_props($$new_props)));
   };
@@ -805,7 +872,262 @@ function instance$4($$self, $$props, $$invalidate) {
 class Plus extends SvelteComponent {
   constructor(options) {
     super();
+    init(this, options, instance$5, create_fragment$5, safe_not_equal, {});
+  }
+}
+function create_fragment$4(ctx) {
+  let svg;
+  let g1;
+  let g0;
+  let path0;
+  let path1;
+  let svg_levels = [
+    { xmlns: "http://www.w3.org/2000/svg" },
+    { viewBox: "0 0 24 24" },
+    /*$$props*/
+    ctx[0]
+  ];
+  let svg_data = {};
+  for (let i = 0; i < svg_levels.length; i += 1) {
+    svg_data = assign(svg_data, svg_levels[i]);
+  }
+  return {
+    c() {
+      svg = svg_element("svg");
+      g1 = svg_element("g");
+      g0 = svg_element("g");
+      path0 = svg_element("path");
+      path1 = svg_element("path");
+      this.h();
+    },
+    l(nodes) {
+      svg = claim_svg_element(nodes, "svg", { xmlns: true, viewBox: true });
+      var svg_nodes = children(svg);
+      g1 = claim_svg_element(svg_nodes, "g", { "data-name": true });
+      var g1_nodes = children(g1);
+      g0 = claim_svg_element(g1_nodes, "g", { "data-name": true });
+      var g0_nodes = children(g0);
+      path0 = claim_svg_element(g0_nodes, "path", { d: true });
+      children(path0).forEach(detach);
+      path1 = claim_svg_element(g0_nodes, "path", { d: true });
+      children(path1).forEach(detach);
+      g0_nodes.forEach(detach);
+      g1_nodes.forEach(detach);
+      svg_nodes.forEach(detach);
+      this.h();
+    },
+    h() {
+      attr(path0, "d", "M17 12v-.09a.88.88 0 0 0-.06-.28.72.72 0 0 0-.11-.19 1 1 0 0 0-.09-.13l-2.86-3a1 1 0 0 0-1.45 1.38L13.66 11H8a1 1 0 0 0 0 2h5.59l-1.3 1.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3-3a1 1 0 0 0 .21-.32A1 1 0 0 0 17 12z");
+      attr(path1, "d", "M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z");
+      attr(g0, "data-name", "arrow-circle-right");
+      attr(g1, "data-name", "Layer 2");
+      set_svg_attributes(svg, svg_data);
+    },
+    m(target, anchor) {
+      insert_hydration(target, svg, anchor);
+      append_hydration(svg, g1);
+      append_hydration(g1, g0);
+      append_hydration(g0, path0);
+      append_hydration(g0, path1);
+    },
+    p(ctx2, [dirty]) {
+      set_svg_attributes(svg, svg_data = get_spread_update(svg_levels, [
+        { xmlns: "http://www.w3.org/2000/svg" },
+        { viewBox: "0 0 24 24" },
+        dirty & /*$$props*/
+        1 && /*$$props*/
+        ctx2[0]
+      ]));
+    },
+    i: noop,
+    o: noop,
+    d(detaching) {
+      if (detaching)
+        detach(svg);
+    }
+  };
+}
+function instance$4($$self, $$props, $$invalidate) {
+  $$self.$$set = ($$new_props) => {
+    $$invalidate(0, $$props = assign(assign({}, $$props), exclude_internal_props($$new_props)));
+  };
+  $$props = exclude_internal_props($$props);
+  return [$$props];
+}
+class Next extends SvelteComponent {
+  constructor(options) {
+    super();
     init(this, options, instance$4, create_fragment$4, safe_not_equal, {});
+  }
+}
+function create_fragment$3(ctx) {
+  let svg;
+  let g1;
+  let g0;
+  let path0;
+  let path1;
+  let svg_levels = [
+    { xmlns: "http://www.w3.org/2000/svg" },
+    { viewBox: "0 0 24 24" },
+    /*$$props*/
+    ctx[0]
+  ];
+  let svg_data = {};
+  for (let i = 0; i < svg_levels.length; i += 1) {
+    svg_data = assign(svg_data, svg_levels[i]);
+  }
+  return {
+    c() {
+      svg = svg_element("svg");
+      g1 = svg_element("g");
+      g0 = svg_element("g");
+      path0 = svg_element("path");
+      path1 = svg_element("path");
+      this.h();
+    },
+    l(nodes) {
+      svg = claim_svg_element(nodes, "svg", { xmlns: true, viewBox: true });
+      var svg_nodes = children(svg);
+      g1 = claim_svg_element(svg_nodes, "g", { "data-name": true });
+      var g1_nodes = children(g1);
+      g0 = claim_svg_element(g1_nodes, "g", { "data-name": true });
+      var g0_nodes = children(g0);
+      path0 = claim_svg_element(g0_nodes, "path", { d: true });
+      children(path0).forEach(detach);
+      path1 = claim_svg_element(g0_nodes, "path", { d: true });
+      children(path1).forEach(detach);
+      g0_nodes.forEach(detach);
+      g1_nodes.forEach(detach);
+      svg_nodes.forEach(detach);
+      this.h();
+    },
+    h() {
+      attr(path0, "d", "M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z");
+      attr(path1, "d", "M15 8a1 1 0 0 0-1 1v6a1 1 0 0 0 2 0V9a1 1 0 0 0-1-1zM9 8a1 1 0 0 0-1 1v6a1 1 0 0 0 2 0V9a1 1 0 0 0-1-1z");
+      attr(g0, "data-name", "pause-circle");
+      attr(g1, "data-name", "Layer 2");
+      set_svg_attributes(svg, svg_data);
+    },
+    m(target, anchor) {
+      insert_hydration(target, svg, anchor);
+      append_hydration(svg, g1);
+      append_hydration(g1, g0);
+      append_hydration(g0, path0);
+      append_hydration(g0, path1);
+    },
+    p(ctx2, [dirty]) {
+      set_svg_attributes(svg, svg_data = get_spread_update(svg_levels, [
+        { xmlns: "http://www.w3.org/2000/svg" },
+        { viewBox: "0 0 24 24" },
+        dirty & /*$$props*/
+        1 && /*$$props*/
+        ctx2[0]
+      ]));
+    },
+    i: noop,
+    o: noop,
+    d(detaching) {
+      if (detaching)
+        detach(svg);
+    }
+  };
+}
+function instance$3($$self, $$props, $$invalidate) {
+  $$self.$$set = ($$new_props) => {
+    $$invalidate(0, $$props = assign(assign({}, $$props), exclude_internal_props($$new_props)));
+  };
+  $$props = exclude_internal_props($$props);
+  return [$$props];
+}
+class Pause extends SvelteComponent {
+  constructor(options) {
+    super();
+    init(this, options, instance$3, create_fragment$3, safe_not_equal, {});
+  }
+}
+function create_fragment$2(ctx) {
+  let svg;
+  let g1;
+  let g0;
+  let path0;
+  let path1;
+  let svg_levels = [
+    { xmlns: "http://www.w3.org/2000/svg" },
+    { viewBox: "0 0 24 24" },
+    /*$$props*/
+    ctx[0]
+  ];
+  let svg_data = {};
+  for (let i = 0; i < svg_levels.length; i += 1) {
+    svg_data = assign(svg_data, svg_levels[i]);
+  }
+  return {
+    c() {
+      svg = svg_element("svg");
+      g1 = svg_element("g");
+      g0 = svg_element("g");
+      path0 = svg_element("path");
+      path1 = svg_element("path");
+      this.h();
+    },
+    l(nodes) {
+      svg = claim_svg_element(nodes, "svg", { xmlns: true, viewBox: true });
+      var svg_nodes = children(svg);
+      g1 = claim_svg_element(svg_nodes, "g", { "data-name": true });
+      var g1_nodes = children(g1);
+      g0 = claim_svg_element(g1_nodes, "g", { "data-name": true });
+      var g0_nodes = children(g0);
+      path0 = claim_svg_element(g0_nodes, "path", { d: true });
+      children(path0).forEach(detach);
+      path1 = claim_svg_element(g0_nodes, "path", { d: true });
+      children(path1).forEach(detach);
+      g0_nodes.forEach(detach);
+      g1_nodes.forEach(detach);
+      svg_nodes.forEach(detach);
+      this.h();
+    },
+    h() {
+      attr(path0, "d", "M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z");
+      attr(path1, "d", "M12.34 7.45a1.7 1.7 0 0 0-1.85-.3 1.6 1.6 0 0 0-1 1.48v6.74a1.6 1.6 0 0 0 1 1.48 1.68 1.68 0 0 0 .69.15 1.74 1.74 0 0 0 1.16-.45L16 13.18a1.6 1.6 0 0 0 0-2.36zm-.84 7.15V9.4l2.81 2.6z");
+      attr(g0, "data-name", "play-circle");
+      attr(g1, "data-name", "Layer 2");
+      set_svg_attributes(svg, svg_data);
+    },
+    m(target, anchor) {
+      insert_hydration(target, svg, anchor);
+      append_hydration(svg, g1);
+      append_hydration(g1, g0);
+      append_hydration(g0, path0);
+      append_hydration(g0, path1);
+    },
+    p(ctx2, [dirty]) {
+      set_svg_attributes(svg, svg_data = get_spread_update(svg_levels, [
+        { xmlns: "http://www.w3.org/2000/svg" },
+        { viewBox: "0 0 24 24" },
+        dirty & /*$$props*/
+        1 && /*$$props*/
+        ctx2[0]
+      ]));
+    },
+    i: noop,
+    o: noop,
+    d(detaching) {
+      if (detaching)
+        detach(svg);
+    }
+  };
+}
+function instance$2($$self, $$props, $$invalidate) {
+  $$self.$$set = ($$new_props) => {
+    $$invalidate(0, $$props = assign(assign({}, $$props), exclude_internal_props($$new_props)));
+  };
+  $$props = exclude_internal_props($$props);
+  return [$$props];
+}
+class Play extends SvelteComponent {
+  constructor(options) {
+    super();
+    init(this, options, instance$2, create_fragment$2, safe_not_equal, {});
   }
 }
 const CodeEditors_svelte_svelte_type_style_lang = "";
@@ -1045,7 +1367,7 @@ function create_each_block(key_1, ctx) {
     }
   };
 }
-function create_fragment$3(ctx) {
+function create_fragment$1(ctx) {
   let div;
   let iconbutton0;
   let t0;
@@ -1317,7 +1639,7 @@ function create_fragment$3(ctx) {
   };
 }
 const DEFAULT_EDITOR_ID = 1;
-function instance$3($$self, $$props, $$invalidate) {
+function instance$1($$self, $$props, $$invalidate) {
   var _a;
   let currentMaxId;
   let { $$slots: slots = {}, $$scope } = $$props;
@@ -1402,331 +1724,7 @@ function instance$3($$self, $$props, $$invalidate) {
 class CodeEditors extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance$3, create_fragment$3, safe_not_equal, { editors: 0 });
-  }
-}
-function create_fragment$2(ctx) {
-  let codemirror;
-  let updating_code;
-  let current;
-  function codemirror_code_binding(value) {
-    ctx[1](value);
-  }
-  let codemirror_props = { editorId: 0, canBeRemoved: false };
-  if (
-    /*code*/
-    ctx[0] !== void 0
-  ) {
-    codemirror_props.code = /*code*/
-    ctx[0];
-  }
-  codemirror = new CodeMirror({ props: codemirror_props });
-  binding_callbacks.push(() => bind(codemirror, "code", codemirror_code_binding));
-  codemirror.$on(
-    "change",
-    /*change_handler*/
-    ctx[2]
-  );
-  return {
-    c() {
-      create_component(codemirror.$$.fragment);
-    },
-    l(nodes) {
-      claim_component(codemirror.$$.fragment, nodes);
-    },
-    m(target, anchor) {
-      mount_component(codemirror, target, anchor);
-      current = true;
-    },
-    p(ctx2, [dirty]) {
-      const codemirror_changes = {};
-      if (!updating_code && dirty & /*code*/
-      1) {
-        updating_code = true;
-        codemirror_changes.code = /*code*/
-        ctx2[0];
-        add_flush_callback(() => updating_code = false);
-      }
-      codemirror.$set(codemirror_changes);
-    },
-    i(local) {
-      if (current)
-        return;
-      transition_in(codemirror.$$.fragment, local);
-      current = true;
-    },
-    o(local) {
-      transition_out(codemirror.$$.fragment, local);
-      current = false;
-    },
-    d(detaching) {
-      destroy_component(codemirror, detaching);
-    }
-  };
-}
-function instance$2($$self, $$props, $$invalidate) {
-  let { code = "" } = $$props;
-  function codemirror_code_binding(value) {
-    code = value;
-    $$invalidate(0, code);
-  }
-  function change_handler(event) {
-    bubble.call(this, $$self, event);
-  }
-  $$self.$$set = ($$props2) => {
-    if ("code" in $$props2)
-      $$invalidate(0, code = $$props2.code);
-  };
-  return [code, codemirror_code_binding, change_handler];
-}
-class StyleEditor extends SvelteComponent {
-  constructor(options) {
-    super();
-    init(this, options, instance$2, create_fragment$2, safe_not_equal, { code: 0 });
-  }
-}
-var LZString = function() {
-  function o(o2, r2) {
-    if (!t[o2]) {
-      t[o2] = {};
-      for (var n = 0; n < o2.length; n++)
-        t[o2][o2.charAt(n)] = n;
-    }
-    return t[o2][r2];
-  }
-  var r = String.fromCharCode, e = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-$", t = {}, i = {
-    compressToEncodedURIComponent: function(o2) {
-      return null == o2 ? "" : i._compress(o2, 6, function(o3) {
-        return e.charAt(o3);
-      });
-    },
-    decompressFromEncodedURIComponent: function(r2) {
-      return null == r2 ? "" : "" == r2 ? null : (r2 = r2.replace(/ /g, "+"), i._decompress(r2.length, 32, function(n) {
-        return o(e, r2.charAt(n));
-      }));
-    },
-    _compress: function(o2, r2, n) {
-      if (null == o2)
-        return "";
-      var e2, t2, i2, s = {}, p = {}, u = "", c = "", a = "", l = 2, f = 3, h = 2, d = [], m = 0, v = 0;
-      for (i2 = 0; i2 < o2.length; i2 += 1)
-        if (u = o2.charAt(i2), Object.prototype.hasOwnProperty.call(s, u) || (s[u] = f++, p[u] = true), c = a + u, Object.prototype.hasOwnProperty.call(s, c))
-          a = c;
-        else {
-          if (Object.prototype.hasOwnProperty.call(p, a)) {
-            if (a.charCodeAt(0) < 256) {
-              for (e2 = 0; h > e2; e2++)
-                m <<= 1, v == r2 - 1 ? (v = 0, d.push(n(m)), m = 0) : v++;
-              for (t2 = a.charCodeAt(0), e2 = 0; 8 > e2; e2++)
-                m = m << 1 | 1 & t2, v == r2 - 1 ? (v = 0, d.push(n(m)), m = 0) : v++, t2 >>= 1;
-            } else {
-              for (t2 = 1, e2 = 0; h > e2; e2++)
-                m = m << 1 | t2, v == r2 - 1 ? (v = 0, d.push(n(m)), m = 0) : v++, t2 = 0;
-              for (t2 = a.charCodeAt(0), e2 = 0; 16 > e2; e2++)
-                m = m << 1 | 1 & t2, v == r2 - 1 ? (v = 0, d.push(n(m)), m = 0) : v++, t2 >>= 1;
-            }
-            l--, 0 == l && (l = Math.pow(2, h), h++), delete p[a];
-          } else
-            for (t2 = s[a], e2 = 0; h > e2; e2++)
-              m = m << 1 | 1 & t2, v == r2 - 1 ? (v = 0, d.push(n(m)), m = 0) : v++, t2 >>= 1;
-          l--, 0 == l && (l = Math.pow(2, h), h++), s[c] = f++, a = String(u);
-        }
-      if ("" !== a) {
-        if (Object.prototype.hasOwnProperty.call(p, a)) {
-          if (a.charCodeAt(0) < 256) {
-            for (e2 = 0; h > e2; e2++)
-              m <<= 1, v == r2 - 1 ? (v = 0, d.push(n(m)), m = 0) : v++;
-            for (t2 = a.charCodeAt(0), e2 = 0; 8 > e2; e2++)
-              m = m << 1 | 1 & t2, v == r2 - 1 ? (v = 0, d.push(n(m)), m = 0) : v++, t2 >>= 1;
-          } else {
-            for (t2 = 1, e2 = 0; h > e2; e2++)
-              m = m << 1 | t2, v == r2 - 1 ? (v = 0, d.push(n(m)), m = 0) : v++, t2 = 0;
-            for (t2 = a.charCodeAt(0), e2 = 0; 16 > e2; e2++)
-              m = m << 1 | 1 & t2, v == r2 - 1 ? (v = 0, d.push(n(m)), m = 0) : v++, t2 >>= 1;
-          }
-          l--, 0 == l && (l = Math.pow(2, h), h++), delete p[a];
-        } else
-          for (t2 = s[a], e2 = 0; h > e2; e2++)
-            m = m << 1 | 1 & t2, v == r2 - 1 ? (v = 0, d.push(n(m)), m = 0) : v++, t2 >>= 1;
-        l--, 0 == l && (l = Math.pow(2, h), h++);
-      }
-      for (t2 = 2, e2 = 0; h > e2; e2++)
-        m = m << 1 | 1 & t2, v == r2 - 1 ? (v = 0, d.push(n(m)), m = 0) : v++, t2 >>= 1;
-      for (; ; ) {
-        if (m <<= 1, v == r2 - 1) {
-          d.push(n(m));
-          break;
-        }
-        v++;
-      }
-      return d.join("");
-    },
-    _decompress: function(o2, n, e2) {
-      var i2, s, p, u, c, a, l, f = [], h = 4, d = 4, m = 3, v = "", w = [], A = { val: e2(0), position: n, index: 1 };
-      for (i2 = 0; 3 > i2; i2 += 1)
-        f[i2] = i2;
-      for (p = 0, c = Math.pow(2, 2), a = 1; a != c; )
-        u = A.val & A.position, A.position >>= 1, 0 == A.position && (A.position = n, A.val = e2(A.index++)), p |= (u > 0 ? 1 : 0) * a, a <<= 1;
-      switch (p) {
-        case 0:
-          for (p = 0, c = Math.pow(2, 8), a = 1; a != c; )
-            u = A.val & A.position, A.position >>= 1, 0 == A.position && (A.position = n, A.val = e2(A.index++)), p |= (u > 0 ? 1 : 0) * a, a <<= 1;
-          l = r(p);
-          break;
-        case 1:
-          for (p = 0, c = Math.pow(2, 16), a = 1; a != c; )
-            u = A.val & A.position, A.position >>= 1, 0 == A.position && (A.position = n, A.val = e2(A.index++)), p |= (u > 0 ? 1 : 0) * a, a <<= 1;
-          l = r(p);
-          break;
-        case 2:
-          return "";
-      }
-      for (f[3] = l, s = l, w.push(l); ; ) {
-        if (A.index > o2)
-          return "";
-        for (p = 0, c = Math.pow(2, m), a = 1; a != c; )
-          u = A.val & A.position, A.position >>= 1, 0 == A.position && (A.position = n, A.val = e2(A.index++)), p |= (u > 0 ? 1 : 0) * a, a <<= 1;
-        switch (l = p) {
-          case 0:
-            for (p = 0, c = Math.pow(2, 8), a = 1; a != c; )
-              u = A.val & A.position, A.position >>= 1, 0 == A.position && (A.position = n, A.val = e2(A.index++)), p |= (u > 0 ? 1 : 0) * a, a <<= 1;
-            f[d++] = r(p), l = d - 1, h--;
-            break;
-          case 1:
-            for (p = 0, c = Math.pow(2, 16), a = 1; a != c; )
-              u = A.val & A.position, A.position >>= 1, 0 == A.position && (A.position = n, A.val = e2(A.index++)), p |= (u > 0 ? 1 : 0) * a, a <<= 1;
-            f[d++] = r(p), l = d - 1, h--;
-            break;
-          case 2:
-            return w.join("");
-        }
-        if (0 == h && (h = Math.pow(2, m), m++), f[l])
-          v = f[l];
-        else {
-          if (l !== d)
-            return null;
-          v = s + s.charAt(0);
-        }
-        w.push(v), f[d++] = s + v.charAt(0), h--, s = v, 0 == h && (h = Math.pow(2, m), m++);
-      }
-    }
-  };
-  return i;
-}();
-const decompressFromEncodedURIComponent = LZString.decompressFromEncodedURIComponent;
-const compressToEncodedURIComponent = LZString.compressToEncodedURIComponent;
-function initializeFromUrlSearchParams() {
-  const defaultValues = {
-    editors: [{ id: 1, code: "\n\n\n\n" }],
-    // Svelte seems to break if style tag is written in string directly, sveltejs/svelte#6923
-    style: `<style>
-  
-</style>`
-  };
-  const encoded = new URLSearchParams(document.location.search).get("code");
-  let json;
-  if (encoded) {
-    try {
-      const decoded = decompressFromEncodedURIComponent(encoded);
-      json = JSON.parse(decoded);
-    } catch (e) {
-      console.error("Unable to parse url search parameters", e);
-    }
-  }
-  if (hasProp(json, "style") && typeof json.style === "string") {
-    if (hasProp(json, "editors") && Array.isArray(json.editors)) {
-      if (json.editors.every(isEditor)) {
-        return { style: json.style, editors: json.editors };
-      }
-    }
-  }
-  return defaultValues;
-}
-function buildStatefulUrl(state) {
-  const encoded = compressToEncodedURIComponent(JSON.stringify(state));
-  const url = new URL(base, window.location.origin);
-  url.searchParams.set("code", encoded);
-  return url;
-}
-function isEditor(editor) {
-  return hasProp(editor, "id") && typeof editor.id === "number" && hasProp(editor, "code") && typeof editor.code === "string";
-}
-function hasProp(obj, key) {
-  if (!obj)
-    return false;
-  return key in obj;
-}
-function create_fragment$1(ctx) {
-  let svg;
-  let g;
-  let path;
-  let svg_levels = [
-    { xmlns: "http://www.w3.org/2000/svg" },
-    { viewBox: "0 0 24 24" },
-    /*$$props*/
-    ctx[0]
-  ];
-  let svg_data = {};
-  for (let i = 0; i < svg_levels.length; i += 1) {
-    svg_data = assign(svg_data, svg_levels[i]);
-  }
-  return {
-    c() {
-      svg = svg_element("svg");
-      g = svg_element("g");
-      path = svg_element("path");
-      this.h();
-    },
-    l(nodes) {
-      svg = claim_svg_element(nodes, "svg", { xmlns: true, viewBox: true });
-      var svg_nodes = children(svg);
-      g = claim_svg_element(svg_nodes, "g", { "data-name": true });
-      var g_nodes = children(g);
-      path = claim_svg_element(g_nodes, "path", { d: true, "data-name": true });
-      children(path).forEach(detach);
-      g_nodes.forEach(detach);
-      svg_nodes.forEach(detach);
-      this.h();
-    },
-    h() {
-      attr(path, "d", "M18 15a3 3 0 0 0-2.1.86L8 12.34v-.67l7.9-3.53A3 3 0 1 0 15 6v.34L7.1 9.86a3 3 0 1 0 0 4.28l7.9 3.53V18a3 3 0 1 0 3-3zm0-10a1 1 0 1 1-1 1 1 1 0 0 1 1-1zM5 13a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm13 6a1 1 0 1 1 1-1 1 1 0 0 1-1 1z");
-      attr(path, "data-name", "share");
-      attr(g, "data-name", "Layer 2");
-      set_svg_attributes(svg, svg_data);
-    },
-    m(target, anchor) {
-      insert_hydration(target, svg, anchor);
-      append_hydration(svg, g);
-      append_hydration(g, path);
-    },
-    p(ctx2, [dirty]) {
-      set_svg_attributes(svg, svg_data = get_spread_update(svg_levels, [
-        { xmlns: "http://www.w3.org/2000/svg" },
-        { viewBox: "0 0 24 24" },
-        dirty & /*$$props*/
-        1 && /*$$props*/
-        ctx2[0]
-      ]));
-    },
-    i: noop,
-    o: noop,
-    d(detaching) {
-      if (detaching)
-        detach(svg);
-    }
-  };
-}
-function instance$1($$self, $$props, $$invalidate) {
-  $$self.$$set = ($$new_props) => {
-    $$invalidate(0, $$props = assign(assign({}, $$props), exclude_internal_props($$new_props)));
-  };
-  $$props = exclude_internal_props($$props);
-  return [$$props];
-}
-class Share extends SvelteComponent {
-  constructor(options) {
-    super();
-    init(this, options, instance$1, create_fragment$1, safe_not_equal, {});
+    init(this, options, instance$1, create_fragment$1, safe_not_equal, { editors: 0 });
   }
 }
 const _page_svelte_svelte_type_style_lang = "";
