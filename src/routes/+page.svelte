@@ -13,6 +13,7 @@
     } from '$lib/utils/urlSearchParams.svelte';
     import IconButton from '$lib/IconButton.svelte';
     import Share from '$lib/img/share.svg?component';
+    import Github from '$lib/img/github.svg?component';
 </script>
 
 <script lang="ts">
@@ -76,6 +77,13 @@
 <main class="wrapper">
     <h1>HTML Preview</h1>
 
+    <a
+        class="github-icon"
+        aria-label="Sources codes at Github"
+        href="https://github.com/AriPerkkio/html-preview">
+        <Github aria-hidden="true" />
+    </a>
+
     <p>
         Test and share snippets of HTML and state tranformations with others.
         <a
@@ -110,6 +118,7 @@
 
 <style lang="scss">
     .wrapper {
+        position: relative;
         display: grid;
         grid-template-columns: 1fr;
         justify-items: stretch;
@@ -124,10 +133,28 @@
         }
     }
 
+    h1 {
+        margin: 0;
+        padding: 0;
+    }
+
     .sandbox {
         resize: vertical;
         border: 0.1rem solid var(--yellow);
         border-radius: 0.5rem;
+    }
+
+    :global(.github-icon) {
+        position: absolute;
+        top: 2rem;
+        right: 1rem;
+        height: 2rem;
+        width: 2rem;
+        fill: var(--yellow);
+
+        &:focus {
+            top: 1.8rem;
+        }
     }
 
     a {
