@@ -1,6 +1,71 @@
 import { S as SvelteComponent, i as init, s as safe_not_equal, J as assign, K as svg_element, L as claim_svg_element, m as children, h as detach, n as attr, M as set_svg_attributes, b as insert_hydration, H as append_hydration, N as get_spread_update, C as noop, O as exclude_internal_props, D as create_slot, k as element, l as claim_element, P as set_attributes, Q as toggle_class, R as listen, E as update_slot_base, F as get_all_dirty_from_scope, G as get_slot_changes, f as transition_in, t as transition_out, T as bubble, a as space, c as claim_space, g as group_outros, d as check_outros, o as onMount, U as createEventDispatcher, x as create_component, y as claim_component, z as mount_component, A as destroy_component, v as binding_callbacks, V as bind, W as add_flush_callback, e as empty, X as update_keyed_each, Y as outro_and_destroy_block, q as text, r as claim_text, Z as src_url_equal } from "../../chunks/index-acfec45a.js";
 import { b as base } from "../../chunks/paths-275c07e6.js";
 import { _ as __vitePreload } from "../../chunks/preload-helper-f8376bb0.js";
+function create_fragment$b(ctx) {
+  let svg;
+  let path;
+  let svg_levels = [
+    { xmlns: "http://www.w3.org/2000/svg" },
+    { viewBox: "0 0 24 24" },
+    /*$$props*/
+    ctx[0]
+  ];
+  let svg_data = {};
+  for (let i = 0; i < svg_levels.length; i += 1) {
+    svg_data = assign(svg_data, svg_levels[i]);
+  }
+  return {
+    c() {
+      svg = svg_element("svg");
+      path = svg_element("path");
+      this.h();
+    },
+    l(nodes) {
+      svg = claim_svg_element(nodes, "svg", { xmlns: true, viewBox: true });
+      var svg_nodes = children(svg);
+      path = claim_svg_element(svg_nodes, "path", { d: true });
+      children(path).forEach(detach);
+      svg_nodes.forEach(detach);
+      this.h();
+    },
+    h() {
+      attr(path, "d", "M16.24 22a1 1 0 0 1-1-1v-2.6a2.15 2.15 0 0 0-.54-1.66 1 1 0 0 1 .61-1.67C17.75 14.78 20 14 20 9.77a4 4 0 0 0-.67-2.22 2.75 2.75 0 0 1-.41-2.06 3.71 3.71 0 0 0 0-1.41 7.65 7.65 0 0 0-2.09 1.09 1 1 0 0 1-.84.15 10.15 10.15 0 0 0-5.52 0 1 1 0 0 1-.84-.15 7.4 7.4 0 0 0-2.11-1.09 3.52 3.52 0 0 0 0 1.41 2.84 2.84 0 0 1-.43 2.08 4.07 4.07 0 0 0-.67 2.23c0 3.89 1.88 4.93 4.7 5.29a1 1 0 0 1 .82.66 1 1 0 0 1-.21 1 2.06 2.06 0 0 0-.55 1.56V21a1 1 0 0 1-2 0v-.57a6 6 0 0 1-5.27-2.09 3.9 3.9 0 0 0-1.16-.88 1 1 0 1 1 .5-1.94 4.93 4.93 0 0 1 2 1.36c1 1 2 1.88 3.9 1.52a3.89 3.89 0 0 1 .23-1.58c-2.06-.52-5-2-5-7a6 6 0 0 1 1-3.33.85.85 0 0 0 .13-.62 5.69 5.69 0 0 1 .33-3.21 1 1 0 0 1 .63-.57c.34-.1 1.56-.3 3.87 1.2a12.16 12.16 0 0 1 5.69 0c2.31-1.5 3.53-1.31 3.86-1.2a1 1 0 0 1 .63.57 5.71 5.71 0 0 1 .33 3.22.75.75 0 0 0 .11.57 6 6 0 0 1 1 3.34c0 5.07-2.92 6.54-5 7a4.28 4.28 0 0 1 .22 1.67V21a1 1 0 0 1-.94 1z");
+      set_svg_attributes(svg, svg_data);
+    },
+    m(target, anchor) {
+      insert_hydration(target, svg, anchor);
+      append_hydration(svg, path);
+    },
+    p(ctx2, [dirty]) {
+      set_svg_attributes(svg, svg_data = get_spread_update(svg_levels, [
+        { xmlns: "http://www.w3.org/2000/svg" },
+        { viewBox: "0 0 24 24" },
+        dirty & /*$$props*/
+        1 && /*$$props*/
+        ctx2[0]
+      ]));
+    },
+    i: noop,
+    o: noop,
+    d(detaching) {
+      if (detaching)
+        detach(svg);
+    }
+  };
+}
+function instance$b($$self, $$props, $$invalidate) {
+  $$self.$$set = ($$new_props) => {
+    $$invalidate(0, $$props = assign(assign({}, $$props), exclude_internal_props($$new_props)));
+  };
+  $$props = exclude_internal_props($$props);
+  return [$$props];
+}
+class Github extends SvelteComponent {
+  constructor(options) {
+    super();
+    init(this, options, instance$b, create_fragment$b, safe_not_equal, {});
+  }
+}
 function create_fragment$a(ctx) {
   let svg;
   let g;
@@ -1877,21 +1942,25 @@ function create_fragment(ctx) {
   let h1;
   let t0;
   let t1;
-  let p;
+  let a0;
+  let github;
   let t2;
-  let a;
+  let p;
   let t3;
+  let a1;
   let t4;
   let t5;
+  let t6;
   let iframe;
   let iframe_src_value;
-  let t6;
+  let t7;
   let codeeditors;
   let updating_editors;
-  let t7;
+  let t8;
   let styleeditor;
   let updating_code;
   let current;
+  github = new Github({ props: { "aria-hidden": "true" } });
   function codeeditors_editors_binding(value) {
     ctx[7](value);
   }
@@ -1932,37 +2001,49 @@ function create_fragment(ctx) {
       h1 = element("h1");
       t0 = text("HTML Preview");
       t1 = space();
+      a0 = element("a");
+      create_component(github.$$.fragment);
+      t2 = space();
       p = element("p");
-      t2 = text("Test and share snippets of HTML and state tranformations with others.\n        ");
-      a = element("a");
-      t3 = text("For insipiration see ARIA-live region example.");
-      t4 = text("\n\n        Remember to click play to see state transformations.");
-      t5 = space();
-      iframe = element("iframe");
+      t3 = text("Test and share snippets of HTML and state tranformations with others.\n        ");
+      a1 = element("a");
+      t4 = text("For insipiration see ARIA-live region example.");
+      t5 = text("\n\n        Remember to click play to see state transformations.");
       t6 = space();
-      create_component(codeeditors.$$.fragment);
+      iframe = element("iframe");
       t7 = space();
+      create_component(codeeditors.$$.fragment);
+      t8 = space();
       create_component(styleeditor.$$.fragment);
       this.h();
     },
     l(nodes) {
       main = claim_element(nodes, "MAIN", { class: true });
       var main_nodes = children(main);
-      h1 = claim_element(main_nodes, "H1", {});
+      h1 = claim_element(main_nodes, "H1", { class: true });
       var h1_nodes = children(h1);
       t0 = claim_text(h1_nodes, "HTML Preview");
       h1_nodes.forEach(detach);
       t1 = claim_space(main_nodes);
+      a0 = claim_element(main_nodes, "A", {
+        class: true,
+        "aria-label": true,
+        href: true
+      });
+      var a0_nodes = children(a0);
+      claim_component(github.$$.fragment, a0_nodes);
+      a0_nodes.forEach(detach);
+      t2 = claim_space(main_nodes);
       p = claim_element(main_nodes, "P", {});
       var p_nodes = children(p);
-      t2 = claim_text(p_nodes, "Test and share snippets of HTML and state tranformations with others.\n        ");
-      a = claim_element(p_nodes, "A", { rel: true, href: true, class: true });
-      var a_nodes = children(a);
-      t3 = claim_text(a_nodes, "For insipiration see ARIA-live region example.");
-      a_nodes.forEach(detach);
-      t4 = claim_text(p_nodes, "\n\n        Remember to click play to see state transformations.");
+      t3 = claim_text(p_nodes, "Test and share snippets of HTML and state tranformations with others.\n        ");
+      a1 = claim_element(p_nodes, "A", { rel: true, href: true, class: true });
+      var a1_nodes = children(a1);
+      t4 = claim_text(a1_nodes, "For insipiration see ARIA-live region example.");
+      a1_nodes.forEach(detach);
+      t5 = claim_text(p_nodes, "\n\n        Remember to click play to see state transformations.");
       p_nodes.forEach(detach);
-      t5 = claim_space(main_nodes);
+      t6 = claim_space(main_nodes);
       iframe = claim_element(main_nodes, "IFRAME", {
         class: true,
         security: true,
@@ -1970,40 +2051,47 @@ function create_fragment(ctx) {
         title: true
       });
       children(iframe).forEach(detach);
-      t6 = claim_space(main_nodes);
-      claim_component(codeeditors.$$.fragment, main_nodes);
       t7 = claim_space(main_nodes);
+      claim_component(codeeditors.$$.fragment, main_nodes);
+      t8 = claim_space(main_nodes);
       claim_component(styleeditor.$$.fragment, main_nodes);
       main_nodes.forEach(detach);
       this.h();
     },
     h() {
-      attr(a, "rel", "external");
-      attr(a, "href", base + "/?code=N4IgzgLgngNgpiAXCAPJWcB8AdAdgAnwAd9g9DCAzAe1wgFowBLALzkXwEYA6AJgCc4AWwDc5fAF9xAbX7V4AXmzgIAQwgBXMMoC6pcYQDG86vw4ALahCJNcAazEEKNOo1bt8A4Y8JTcKAHp0eEwQABoQOAATJghTMCRpUCYopE4I4yiEZBQiHCcAYRgmQztiGFUofDj8MDg4fGKANwbBAHMmWnwNIij1ODxAvMGYpvw5RWVIdS1lfMJBgNHQiTDk1MReDOospFRhwuLS8srq6lr6xqYW8bgOrp6%2BiAH-AIOUUfH5OCUVGe0QPN8AAJOAwGDnADuphgUUWyxAEh0EiAA");
-      attr(a, "class", "svelte-1y53fgs");
-      attr(iframe, "class", "sandbox svelte-1y53fgs");
+      attr(h1, "class", "svelte-6fxh0h");
+      attr(a0, "class", "github-icon svelte-6fxh0h");
+      attr(a0, "aria-label", "Sources codes at Github");
+      attr(a0, "href", "https://github.com/AriPerkkio/html-preview");
+      attr(a1, "rel", "external");
+      attr(a1, "href", base + "/?code=N4IgzgLgngNgpiAXCAPJWcB8AdAdgAnwAd9g9DCAzAe1wgFowBLALzkXwEYA6AJgCc4AWwDc5fAF9xAbX7V4AXmzgIAQwgBXMMoC6pcYQDG86vw4ALahCJNcAazEEKNOo1bt8A4Y8JTcKAHp0eEwQABoQOAATJghTMCRpUCYopE4I4yiEZBQiHCcAYRgmQztiGFUofDj8MDg4fGKANwbBAHMmWnwNIij1ODxAvMGYpvw5RWVIdS1lfMJBgNHQiTDk1MReDOospFRhwuLS8srq6lr6xqYW8bgOrp6%2BiAH-AIOUUfH5OCUVGe0QPN8AAJOAwGDnADuphgUUWyxAEh0EiAA");
+      attr(a1, "class", "svelte-6fxh0h");
+      attr(iframe, "class", "sandbox svelte-6fxh0h");
       attr(iframe, "security", "restricted");
       if (!src_url_equal(iframe.src, iframe_src_value = base + "/sandbox"))
         attr(iframe, "src", iframe_src_value);
       attr(iframe, "title", "Sandbox");
-      attr(main, "class", "wrapper svelte-1y53fgs");
+      attr(main, "class", "wrapper svelte-6fxh0h");
     },
     m(target, anchor) {
       insert_hydration(target, main, anchor);
       append_hydration(main, h1);
       append_hydration(h1, t0);
       append_hydration(main, t1);
+      append_hydration(main, a0);
+      mount_component(github, a0, null);
+      append_hydration(main, t2);
       append_hydration(main, p);
-      append_hydration(p, t2);
-      append_hydration(p, a);
-      append_hydration(a, t3);
-      append_hydration(p, t4);
-      append_hydration(main, t5);
+      append_hydration(p, t3);
+      append_hydration(p, a1);
+      append_hydration(a1, t4);
+      append_hydration(p, t5);
+      append_hydration(main, t6);
       append_hydration(main, iframe);
       ctx[6](iframe);
-      append_hydration(main, t6);
-      mount_component(codeeditors, main, null);
       append_hydration(main, t7);
+      mount_component(codeeditors, main, null);
+      append_hydration(main, t8);
       mount_component(styleeditor, main, null);
       current = true;
     },
@@ -2034,11 +2122,13 @@ function create_fragment(ctx) {
     i(local) {
       if (current)
         return;
+      transition_in(github.$$.fragment, local);
       transition_in(codeeditors.$$.fragment, local);
       transition_in(styleeditor.$$.fragment, local);
       current = true;
     },
     o(local) {
+      transition_out(github.$$.fragment, local);
       transition_out(codeeditors.$$.fragment, local);
       transition_out(styleeditor.$$.fragment, local);
       current = false;
@@ -2046,6 +2136,7 @@ function create_fragment(ctx) {
     d(detaching) {
       if (detaching)
         detach(main);
+      destroy_component(github);
       ctx[6](null);
       destroy_component(codeeditors);
       destroy_component(styleeditor);
